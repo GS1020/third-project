@@ -2,83 +2,198 @@
 
 @import "reset";
 
-.inner {width: 1060px;
-        height: 30px;
-        background-color: aquamarine;
-}
-.header_above {width: 100%;
-            height: 40px;
-    background-color: antiquewhite;
+$w: 1060px;
+$headcolor:#80888a;
+// 헤더 
+.header_above {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #f6f6f6;
+
+    .inner {
+        width: $w;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+
+    ;
+
+    @mixin topnav {
+        display: flex;
+
+        li {
+            font-size: 12px;
+        }
+
+        a {
+            margin: 10px;
+            color:$headcolor;
+        }
+
+        align-items: center;
+        line-height: 39px
+    }
+
+    .header-topleft>ul {
+        @include topnav
+    }
+
+    ;
+
+    .header-topright>ul {
+        @include topnav
+    }
+
+
 }
 
-.header_center{
+// 헤더 인풋창쪽
+.header_center {
     width: 100%;
     height: 150px;
-    background-color: brown;
-}
 
-.header_nav{
+
+    .inner {
+        display: flex;
+    }
+}
+    .biginput{
+        position: relative;
+        .search-icon{position: absolute; top: 13px; right: 13px;
+            font-size: 19px;
+            cursor: pointer;
+        }
+
+        .header-input {
+            width: 581px;
+            height: 44px;
+            border: 1.5px solid #b5b4b6;
+            border-radius: 8px;
+            outline: none;
+            padding-right: 40px;
+            padding-left: 10px ;
+            
+        }
+
+        
+        .search-ul{
+            display: flex;
+            
+            a {font-size: 12px;color: $headcolor;} 
+           .search-flex{display: flex;}
+        }
+
+        
+    }
+
+    .searchbook{width: 220px; height: 95px;
+
+        display: flex;
+        justify-content: space-between;
+        img{width: 65px; height: 95px;}
+
+        .desc{white-space: nowrap;
+        overflow: hidden; text-overflow: ellipsis;}
+    }
+   
+
+
+
+
+
+
+
+
+
+// 헤더 네비
+.header_nav {
     width: 100%;
     height: 50px;
-    background-color:cornflowerblue;
+    background-color: cornflowerblue;
 }
 
-.nav-category{
+.nav-category {
     width: 100%;
     height: 50px;
     background-color: darkgreen;
 }
 
-.slider{width: 100%;
-height: 450px;
-background-color:gold;}
-
-.section-shorts{
+.slider {
     width: 100%;
-    height: 183px;
-    background-color:bisque;
+    height: 450px;
+    background-color: gold;
 }
 
-.section-todaybook{
+.section-shorts {
+    width: 100%;
+    height: 183px;
+    background-color: bisque;
+}
+
+.section-todaybook {
     width: 100%;
     height: 442px;
     background-color: coral;
 }
 
-.section-bestbook{
+.section-bestbook {
     width: 100%;
     height: 434px;
     background-color: cadetblue;
 }
 
-.section-newbook{
+.section-newbook {
     width: 100%;
     height: 554px;
     background-color: lightblue;
 }
 
-.section-promotion{
+.section-promotion {
     width: 100%;
     height: 120px;
     background-color: navy;
 }
 
-.section-popular{
+.section-popular {
     width: 100%;
     height: 520px;
     background-color: gold;
 }
 
-.section-recent{
+.section-recent {
     width: 100%;
     height: 600px;
     background-color: cornflowerblue;
 }
 
-.section-MD{
+.section-MD {
     width: 100%;
     height: 430px;
     background-color: forestgreen;
 }
 
+.favorite-book {
+    width: 100%;
+    height: 490px;
+    background-color: brown;
+}
 
+.section-goodreview {
+    width: 100%;
+    height: 572px;
+    background-color: aquamarine;
+}
+
+.notice {
+    width: 100%;
+    height: 55px;
+    background-color: peru;
+}
+
+footer {
+    width: 100%;
+    height: 463px;
+    background-color: grey;
+}

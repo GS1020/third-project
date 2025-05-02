@@ -8,6 +8,11 @@ ul, ol, li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+  color: #333;
+}
+
 #wrap {
   margin: 0 auto;
   width: 100%;
@@ -18,22 +23,95 @@ ul, ol, li {
   width: 1060px;
 }
 
-.inner {
-  width: 1060px;
-  height: 30px;
-  background-color: aquamarine;
-}
-
 .header_above {
   width: 100%;
   height: 40px;
-  background-color: antiquewhite;
+  border-bottom: 1px solid #f6f6f6;
+}
+.header_above .inner {
+  width: 1060px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header_above .header-topleft > ul {
+  display: flex;
+  align-items: center;
+  line-height: 39px;
+}
+.header_above .header-topleft > ul li {
+  font-size: 12px;
+}
+.header_above .header-topleft > ul a {
+  margin: 10px;
+  color: #80888a;
+}
+.header_above .header-topright > ul {
+  display: flex;
+  align-items: center;
+  line-height: 39px;
+}
+.header_above .header-topright > ul li {
+  font-size: 12px;
+}
+.header_above .header-topright > ul a {
+  margin: 10px;
+  color: #80888a;
 }
 
 .header_center {
   width: 100%;
   height: 150px;
-  background-color: brown;
+}
+.header_center .inner {
+  display: flex;
+}
+
+.biginput {
+  position: relative;
+}
+.biginput .search-icon {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  font-size: 19px;
+  cursor: pointer;
+}
+.biginput .header-input {
+  width: 581px;
+  height: 44px;
+  border: 1.5px solid #b5b4b6;
+  border-radius: 8px;
+  outline: none;
+  padding-right: 40px;
+  padding-left: 10px;
+}
+.biginput .search-ul {
+  display: flex;
+}
+.biginput .search-ul a {
+  font-size: 12px;
+  color: #80888a;
+}
+.biginput .search-ul .search-flex {
+  display: flex;
+}
+
+.searchbook {
+  width: 220px;
+  height: 95px;
+  display: flex;
+  justify-content: space-between;
+}
+.searchbook img {
+  width: 65px;
+  height: 95px;
+}
+.searchbook .desc {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .header_nav {
@@ -100,4 +178,28 @@ ul, ol, li {
   width: 100%;
   height: 430px;
   background-color: forestgreen;
+}
+
+.favorite-book {
+  width: 100%;
+  height: 490px;
+  background-color: brown;
+}
+
+.section-goodreview {
+  width: 100%;
+  height: 572px;
+  background-color: aquamarine;
+}
+
+.notice {
+  width: 100%;
+  height: 55px;
+  background-color: peru;
+}
+
+footer {
+  width: 100%;
+  height: 463px;
+  background-color: grey;
 }
