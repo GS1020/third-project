@@ -7,6 +7,8 @@
     <title>영풍문고 - 서점다운 서점</title>
     <link rel="stylesheet" href="./css/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -50,109 +52,179 @@
                             <i class="fa-solid fa-magnifying-glass search-icon"></i>
                             <div class="search-flex">
                                 <ul class="search-ul">
-                                    <li><a href="#">한강&lt;빛과 실&gt;|</a></li>
-                                    <li><a href="#">유시민 청춘의 독서|</a></li>
-                                    <li><a href="#">기울어진 평등|</a></li>
-                                    <li><a href="#">프란치스코 교황|</a></li>
+                                    <li><a href="#">한강&lt;빛과 실&gt;</a></li>
+                                    <li><a href="#">유시민 청춘의 독서</a></li>
+                                    <li><a href="#">기울어진 평등</a></li>
+                                    <li><a href="#">프란치스코 교황</a></li>
                                     <li><a href="#">김영하 신간</a></li>
+
                                 </ul>
-                                <i>&lt;</i>
-                                <i>&gt;</i>
+                                <div>
+                                    <i class="scroll">&lt;</i>
+                                    <i class="scroll">&gt;</i>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="searchbook-container">
+                            <div>
+                                <i class="scroll">&lt;</i>
+                                <i class="scroll">&gt;</i>
                             </div>
                         </div>
-                        <div class="searchbook">
-                            <img src="img/searchbook.jpg" alt="searchbook">
-                            <div class="searchment">
-                            <span class="desc">아빠 당신의이야기를들려주세요</span>
-                            <span class="title">아빠를 위한 세상 오직 하나뿐인 선물</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-
-
-
-            <div class="header_nav">
-                <div class="container">
-                    <div class="nav-categori">
 
                     </div>
                 </div>
             </div>
+    </div>
 
-            <div class="slider">
 
+
+
+    <div class="header_nav">
+        <div class="container">
+            <div class="nav-category">
+                <div>
+                    <ul class="nav1">
+                        <div class="nav3">
+                            <img src="img/toggle.png" alt="toggle">
+                            <li><a href="#">전체 카테고리</a></li>
+                        </div>
+                        <li><a href="#">베스트</a></li>
+                        <li><a href="#">신상품</a></li>
+                        <li><a href="#">추천</a></li>
+                        <li><a href="#">기프티콘</a></li>
+                        <li><a href="#">컬처페이지</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <ul class="nav2">
+                        <li><a href="#">해택</a></li>
+                        <li><a href="#">사은품</a></li>
+                        <li><a href="#">문화행사</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">출석체크</a></li>
+                    </ul>
+                </div>
             </div>
-        </header>
-
-
-
-        <section class="section-shorts">
-
-        </section>
-
-        <section class="section-todaybook">
-
-        </section>
-
-        <section class="section-bestbook">
-
-        </section>
-
-        <section class="section-newbook">
-
-        </section>
-
-        <div class="section-promotion">
 
         </div>
+    </div>
 
-        <section class="section-popular">
+    <div class="slider">
 
-        </section>
-
-        <section class="section-recent">
-
-        </section>
-
-        <section class="section-MD">
-
-        </section>
-
-        <section class="section-MD">
-
-        </section>
-
-        <section class="section-MD">
-
-        </section>
-
-        <section class="section-promotion">
-
-        </section>
-
-        <div class="favorite-book">
-
+        <div class="container">
+            <div class="sub">
+                <ul class="kbook">
+                    <div class="kkbook">
+                        <li><a href="#">국내도서</a></li>
+                        <li><a href="#">외국도서</a></li>
+                        <li><a href="#">영풍문고 매장</a></li>
+                    </div>
+                    <div class="survice">
+                        <li><a href="#">서비스 모두보기</a></li>
+                    </div>
+                </ul>
+                <div class="kbook2">
+                    <ul class="kkbook2">
+                        <div class="navbook">
+                            <li><a href="#">소셜/에세이/시</a></li>
+                            <li><a href="#">유아/어린이/초등학습</a></li>
+                            <li><a href="#">인문/역사</a></li>
+                            <li><a href="#">예술</a></li>
+                            <li><a href="#">종교</a></li>
+                            <li><a href="#">경제/자기계발</a></li>
+                            <li><a href="#">정치/사회</a></li>
+                            <li><a href="#">수험서/자격증</a></li>
+                            <li><a href="#">사전</a></li>
+                        </div>
+                        <div class="navbook">
+                            <li><a href="#">자녀교육/건강/여행/요리</a></li>
+                            <li><a href="#">중/고학습</a></li>
+                            <li><a href="#">외국어</a></li>
+                            <li><a href="#">컴퓨터/IT</a></li>
+                            <li><a href="#">기술/공학</a></li>
+                            <li><a href="#">자연/과학</a></li>
+                            <li><a href="#">의학</a></li>
+                            <li><a href="#">잡지</a></li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="kbook3"></div>
+            </div>
         </div>
-
-        <section class="section-goodreview">
-
-        </section>
-
-        <div class="section-promotion">
-
-        </div>
-
-        <div class="notice">
-
-        </div>
+    </div>
+    </header>
 
 
-        <footer>
 
-        </footer>
+    <section class="section-shorts">
+
+    </section>
+
+    <section class="section-todaybook">
+
+    </section>
+
+    <section class="section-bestbook">
+
+    </section>
+
+    <section class="section-newbook">
+
+    </section>
+
+    <div class="section-promotion">
+
+    </div>
+
+    <section class="section-popular">
+
+    </section>
+
+    <section class="section-recent">
+
+    </section>
+
+    <section class="section-MD">
+
+    </section>
+
+    <section class="section-MD">
+
+    </section>
+
+    <section class="section-MD">
+
+    </section>
+
+    <section class="section-promotion">
+
+    </section>
+
+    <div class="favorite-book">
+
+    </div>
+
+    <section class="section-goodreview">
+
+    </section>
+
+    <div class="section-promotion">
+
+    </div>
+
+    <div class="notice">
+
+    </div>
+
+
+    <footer>
+
+    </footer>
     </div>
 </body>
 

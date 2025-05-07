@@ -3,8 +3,21 @@
 @import "reset";
 
 $w: 1060px;
-$headcolor:#80888a;
+$headcolor: #80888a;
+
 // 헤더 
+header {
+    .scroll {
+        width: 14px;
+        height: 15px;
+        color: $headcolor;
+        cursor: pointer;
+
+        border-radius: 30px;
+
+    }
+}
+
 .header_above {
     width: 100%;
     height: 40px;
@@ -29,7 +42,7 @@ $headcolor:#80888a;
 
         a {
             margin: 10px;
-            color:$headcolor;
+            color: $headcolor;
         }
 
         align-items: center;
@@ -53,51 +66,108 @@ $headcolor:#80888a;
 .header_center {
     width: 100%;
     height: 150px;
-
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
 
     .inner {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }
-    .biginput{
-        position: relative;
-        .search-icon{position: absolute; top: 13px; right: 13px;
-            font-size: 19px;
-            cursor: pointer;
-        }
 
-        .header-input {
-            width: 581px;
-            height: 44px;
-            border: 1.5px solid #b5b4b6;
-            border-radius: 8px;
-            outline: none;
-            padding-right: 40px;
-            padding-left: 10px ;
-            
-        }
+.biginput {
+    position: relative;
+    padding-top: 40px;
 
-        
-        .search-ul{
-            display: flex;
-            
-            a {font-size: 12px;color: $headcolor;} 
-           .search-flex{display: flex;}
-        }
-
-        
+    .search-icon {
+        position: absolute;
+        top: 53px;
+        right: 13px;
+        font-size: 19px;
+        cursor: pointer;
     }
 
-    .searchbook{width: 220px; height: 95px;
+    .header-input {
+        width: 581px;
+        height: 44px;
+        border: 1.5px solid #b5b4b6;
+        border-radius: 8px;
+        outline: none;
+        padding-right: 40px;
+        padding-left: 10px;
 
+    }
+
+    .search-flex {
         display: flex;
         justify-content: space-between;
-        img{width: 65px; height: 95px;}
+        align-items: center;
 
-        .desc{white-space: nowrap;
-        overflow: hidden; text-overflow: ellipsis;}
+        .search-ul {
+            display: flex;
+
+            a {
+                font-size: 12px;
+                color: $headcolor;
+            }
+
+            li:not(:last-child)::after {
+                color: $headcolor;
+                content: "|";
+                opacity: 0.2;
+                margin: 10px;
+                font-size: 10px;
+            }
+        }
+
+
     }
-   
+
+}
+
+// 도서 작은 api
+.searchbook-container {
+    display: flex;
+    flex-flow: column-reverse;
+    align-items: flex-end;
+    padding-top: 20px;
+}
+
+.searchbook {
+    width: 220px;
+    height: 95px;
+    display: flex;
+    justify-content: space-between;
+
+    img {
+        width: 65px;
+        height: 95px;
+    }
+
+    .text-area {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-left: 10px;
+        width: 155px;
+
+        p,
+        h6 {
+            margin: 0;
+            font-weight: bold;
+            font-size: 12px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; // 한 줄만
+            color: $headcolor;
+        }
+    }
+
+}
+
+
 
 
 
@@ -112,18 +182,132 @@ $headcolor:#80888a;
     width: 100%;
     height: 50px;
     background-color: cornflowerblue;
+    border-bottom: solid 1px #fff;
+
+    img {
+        width: 25px;
+        height: 25px;
+    }
 }
 
 .nav-category {
     width: 100%;
     height: 50px;
-    background-color: darkgreen;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+        color: #fff;
+    }
+
+    .nav3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 130px;
+    }
+
+    .nav1 {
+        width: 530px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .nav2 {
+        width: 530px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        a {
+            font-size: 14px;
+        }
+
+    }
+
+    .nav2 li:not(:last-child)::after {
+        content: "|";
+        color: #fff;
+        margin: 10px;
+        font-size: 12px;
+
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .slider {
     width: 100%;
     height: 450px;
     background-color: gold;
+
+    .sub {
+        width: 100%;
+        height: 497px;
+        background-color: #fff;
+        display: flex;
+    }
+
+    .kbook {
+        width: 160px;
+        height: 467px;
+        background-color: #eaeded;
+        
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        
+        .kkbook{
+            li{padding: 13px;}
+        }
+        .survice{
+            
+            background-color: $headcolor;
+            width: 160px;
+            height: 70px;
+            
+        }
+    }
+
+    .kbook2 {
+        display: flex; justify-content: space-between;
+
+        background-color: #fff;
+        .kkbook2{display: flex;
+            justify-content: space-around;
+            width: 500px;
+            height: 497px;
+        font-size: 13px;      
+        padding-top: 10px; 
+        li{padding: 3px;}
+        a{color:$headcolor;}
+        }
+    }
+    .kbook3{
+        width: 400px;
+        height: 440px;
+        background-color: #fff;
+    }
+
 }
 
 .section-shorts {

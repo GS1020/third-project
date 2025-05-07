@@ -23,6 +23,14 @@ a {
   width: 1060px;
 }
 
+header .scroll {
+  width: 14px;
+  height: 15px;
+  color: #80888a;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
 .header_above {
   width: 100%;
   height: 40px;
@@ -63,17 +71,23 @@ a {
 .header_center {
   width: 100%;
   height: 150px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
 .header_center .inner {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .biginput {
   position: relative;
+  padding-top: 40px;
 }
 .biginput .search-icon {
   position: absolute;
-  top: 13px;
+  top: 53px;
   right: 13px;
   font-size: 19px;
   cursor: pointer;
@@ -87,15 +101,31 @@ a {
   padding-right: 40px;
   padding-left: 10px;
 }
-.biginput .search-ul {
+.biginput .search-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.biginput .search-flex .search-ul {
   display: flex;
 }
-.biginput .search-ul a {
+.biginput .search-flex .search-ul a {
   font-size: 12px;
   color: #80888a;
 }
-.biginput .search-ul .search-flex {
+.biginput .search-flex .search-ul li:not(:last-child)::after {
+  color: #80888a;
+  content: "|";
+  opacity: 0.2;
+  margin: 10px;
+  font-size: 10px;
+}
+
+.searchbook-container {
   display: flex;
+  flex-flow: column-reverse;
+  align-items: flex-end;
+  padding-top: 20px;
 }
 
 .searchbook {
@@ -108,28 +138,123 @@ a {
   width: 65px;
   height: 95px;
 }
-.searchbook .desc {
-  white-space: nowrap;
+.searchbook .text-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 10px;
+  width: 155px;
+}
+.searchbook .text-area p,
+.searchbook .text-area h6 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 12px;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #80888a;
 }
 
 .header_nav {
   width: 100%;
   height: 50px;
   background-color: cornflowerblue;
+  border-bottom: solid 1px #fff;
+}
+.header_nav img {
+  width: 25px;
+  height: 25px;
 }
 
 .nav-category {
   width: 100%;
   height: 50px;
-  background-color: darkgreen;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-category a {
+  color: #fff;
+}
+.nav-category .nav3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 130px;
+}
+.nav-category .nav1 {
+  width: 530px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.nav-category .nav2 {
+  width: 530px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.nav-category .nav2 a {
+  font-size: 14px;
+}
+.nav-category .nav2 li:not(:last-child)::after {
+  content: "|";
+  color: #fff;
+  margin: 10px;
+  font-size: 12px;
 }
 
 .slider {
   width: 100%;
   height: 450px;
   background-color: gold;
+}
+.slider .sub {
+  width: 100%;
+  height: 497px;
+  background-color: #fff;
+  display: flex;
+}
+.slider .kbook {
+  width: 160px;
+  height: 467px;
+  background-color: #eaeded;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+.slider .kbook .kkbook li {
+  padding: 13px;
+}
+.slider .kbook .survice {
+  background-color: #80888a;
+  width: 160px;
+  height: 70px;
+}
+.slider .kbook2 {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.slider .kbook2 .kkbook2 {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  height: 497px;
+  font-size: 13px;
+  padding-top: 10px;
+}
+.slider .kbook2 .kkbook2 li {
+  padding: 3px;
+}
+.slider .kbook2 .kkbook2 a {
+  color: #80888a;
+}
+.slider .kbook3 {
+  width: 400px;
+  height: 440px;
+  background-color: #fff;
 }
 
 .section-shorts {
