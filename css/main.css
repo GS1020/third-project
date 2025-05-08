@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -180,14 +181,24 @@ header .scroll {
 .nav-category .nav3 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 130px;
+  justify-content: space-evenly;
+  width: 160px;
+  height: 50px;
+  cursor: pointer;
+}
+.nav-category .nav3 li {
+  margin: 10px;
+}
+.nav-category .nav3:hover {
+  background-color: #333333;
+  border-radius: 10px 10px 0 0;
+  opacity: 0.7;
 }
 .nav-category .nav1 {
   width: 530px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 .nav-category .nav2 {
   width: 530px;
@@ -211,15 +222,17 @@ header .scroll {
   background-color: gold;
 }
 .slider .sub {
-  width: 100%;
-  height: 497px;
+  height: 450px;
   background-color: #fff;
   display: flex;
+  display: none;
+  position: absolute;
+  z-index: 1000;
 }
 .slider .kbook {
   width: 160px;
-  height: 467px;
-  background-color: #eaeded;
+  height: 450px;
+  background-color: #f6f6f6;
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -227,21 +240,32 @@ header .scroll {
 .slider .kbook .kkbook li {
   padding: 13px;
 }
+.slider .kbook .kkbook li:hover {
+  background-color: #fff;
+}
+.slider .kbook .kkbook li:hover::after {
+  content: "⟩";
+  float: right;
+  color: #80888a;
+}
 .slider .kbook .survice {
-  background-color: #80888a;
+  display: flex;
+  background-color: #eaeded;
   width: 160px;
-  height: 70px;
+  height: 66.5px;
+  padding: 13px;
+  line-height: 40px;
 }
 .slider .kbook2 {
   display: flex;
-  justify-content: space-between;
+  flex-flow: column;
   background-color: #fff;
 }
 .slider .kbook2 .kkbook2 {
   display: flex;
   justify-content: space-around;
   width: 500px;
-  height: 497px;
+  height: 400px;
   font-size: 13px;
   padding-top: 10px;
 }
@@ -251,10 +275,66 @@ header .scroll {
 .slider .kbook2 .kkbook2 a {
   color: #80888a;
 }
-.slider .kbook3 {
+.slider .kbook2 .kkbook3 {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  height: 400px;
+  font-size: 13px;
+  padding-top: 10px;
+  display: none;
+  justify-content: space-around;
+  padding-right: 100px;
+}
+.slider .kbook2 .kkbook3 li {
+  padding: 3px;
+}
+.slider .kbook2 .kkbook3 a {
+  color: #80888a;
+}
+.slider .kbook2 .kkbook4 {
+  display: flex;
+  justify-content: space-around;
+  width: 500px;
+  height: 400px;
+  font-size: 13px;
+  padding-top: 10px;
+  font-size: 12px;
+  display: none;
+}
+.slider .kbook2 .kkbook4 li {
+  padding: 3px;
+}
+.slider .kbook2 .kkbook4 a {
+  color: #80888a;
+}
+.slider .bigbook {
   width: 400px;
-  height: 440px;
+  height: auto;
   background-color: #fff;
+  display: flex;
+  flex-flow: wrap;
+}
+.slider .bigbook img {
+  width: 33.3333333333%;
+  height: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.slider .survice2 {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f6f6f6;
+}
+.slider .survice2 a {
+  color: #80888a;
+}
+.slider .survice2 li {
+  font-size: 13px;
 }
 
 .section-shorts {

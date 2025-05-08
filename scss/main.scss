@@ -5,6 +5,34 @@
 $w: 1060px;
 $headcolor: #80888a;
 
+@mixin topnav {
+    display: flex;
+
+    li {
+        font-size: 12px;
+    }
+
+    a {
+        margin: 10px;
+        color: $headcolor;
+    }
+
+    align-items: center;
+    line-height: 39px
+}
+
+@mixin kkbook-style{
+    display: flex;
+        justify-content: space-around;
+        width: 500px;
+        height: 400px;
+    font-size: 13px;      
+    padding-top: 10px; 
+    
+    li{padding: 3px;}
+    a{color:$headcolor;}
+}
+
 // 헤더 
 header {
     .scroll {
@@ -33,21 +61,7 @@ header {
 
     ;
 
-    @mixin topnav {
-        display: flex;
 
-        li {
-            font-size: 12px;
-        }
-
-        a {
-            margin: 10px;
-            color: $headcolor;
-        }
-
-        align-items: center;
-        line-height: 39px
-    }
 
     .header-topleft>ul {
         @include topnav
@@ -205,15 +219,25 @@ header {
     .nav3 {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 130px;
+        justify-content: space-evenly;
+        width: 160px;
+        height: 50px;
+        cursor: pointer;
+        li{margin: 10px;}
+       
+        
+        &:hover{
+            background-color: #333333;
+            border-radius: 10px 10px 0 0;
+            opacity: 0.7;
+        }
     }
 
     .nav1 {
         width: 530px;
         display: flex;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .nav2 {
@@ -259,18 +283,22 @@ header {
     width: 100%;
     height: 450px;
     background-color: gold;
-
+    
     .sub {
-        width: 100%;
-        height: 497px;
+        
+        height: 450px;
         background-color: #fff;
         display: flex;
+        display: none;
+        position: absolute;
+        z-index: 1000;
+        
     }
 
     .kbook {
         width: 160px;
-        height: 467px;
-        background-color: #eaeded;
+        height: 450px;
+        background-color: #f6f6f6;
         
         display: flex;
         flex-flow: column;
@@ -278,35 +306,70 @@ header {
         
         .kkbook{
             li{padding: 13px;}
+            li:hover{background-color: #fff;}
+            li:hover::after{
+                content: "⟩";
+                float: right;
+                color: $headcolor;
+
+            }
         }
         .survice{
-            
-            background-color: $headcolor;
+            display: flex;
+            background-color: #eaeded;
             width: 160px;
-            height: 70px;
+            height: 66.5px;
+            padding: 13px;
+            line-height: 40px;
+
+        }
+    }
+    
+    .kbook2 {
+        display: flex;
+        flex-flow: column;
+        
+
+        background-color: #fff;
+        .kkbook2{
+            @include kkbook-style();
             
         }
-    }
-
-    .kbook2 {
-        display: flex; justify-content: space-between;
-
-        background-color: #fff;
-        .kkbook2{display: flex;
+        .kkbook3{
+            @include kkbook-style();
+            display: none;
             justify-content: space-around;
-            width: 500px;
-            height: 497px;
-        font-size: 13px;      
-        padding-top: 10px; 
-        li{padding: 3px;}
-        a{color:$headcolor;}
+            padding-right:100px
+        }
+        .kkbook4{
+            @include kkbook-style();
+            font-size: 12px;
+            display: none
         }
     }
-    .kbook3{
+    .bigbook{
         width: 400px;
-        height: 440px;
+        height: auto;
         background-color: #fff;
+       img{width: 33.333333333333%; height: 50%; object-fit: cover;}
+        display: flex;
+        flex-flow: wrap;
+        
     }
+    .survice2{
+        width: 100%;
+        height: 70px;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #f6f6f6;
+        
+        a{color:$headcolor;}
+        li{font-size: 13px;}
+        
+    }
+   
 
 }
 
