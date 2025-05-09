@@ -33,6 +33,7 @@ async function bookData1() {
           <div class="text-area">
             <p>${book.title}</p>
             <h6>${summary}</h6>
+            <h5> < > </h5>
           </div>
         </div>
       `;
@@ -99,7 +100,7 @@ async function bookData1() {
     const params = new URLSearchParams({
       target: 'title',
       query: '테일러',
-      size:6
+      size:4
       
     });
   
