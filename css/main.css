@@ -228,8 +228,52 @@ header .scroll {
 
 .slider {
   width: 100%;
-  height: 450px;
-  background-color: gold;
+  height: 350px;
+  background-color: cornflowerblue;
+  position: relative;
+}
+.slider body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.slider .swiper {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+}
+.slider .swiper-slide img {
+  width: 100%;
+  height: 430px;
+  border-radius: 20px;
+}
+.slider .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 425px;
+  border-radius: 20px;
+  margin-top: 50px;
+}
+.slider .append-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+.slider .append-buttons a {
+  display: inline-block;
+  border: 1px solid #007aff;
+  color: #007aff;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin: 0 10px;
+  font-size: 13px;
 }
 .slider .sub {
   height: 450px;
@@ -348,13 +392,56 @@ header .scroll {
 .section-shorts {
   width: 100%;
   height: 183px;
-  background-color: bisque;
+}
+.section-shorts .shortsbox {
+  width: 130px;
+  height: 184px;
+  background-color: #fff;
+  text-align: center;
+  margin: 10px;
+  box-shadow: 1px 0px 3px 3px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.section-shorts .shortsbox img {
+  width: 72px;
+  height: 104px;
+}
+.section-shorts .shortsbox p {
+  background-color: tomato;
+  color: #fff;
+  border-radius: 5px;
+  width: 80px;
+  font-size: 11px;
+}
+.section-shorts .shortsbox h6 {
+  color: #80888a;
 }
 
 .section-todaybook {
   width: 100%;
   height: 442px;
-  background-color: coral;
+}
+.section-todaybook img {
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+}
+.section-todaybook .todayheader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-todaybook .todaymini {
+  width: 100px;
+  height: 40px;
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
 }
 
 .section-bestbook {

@@ -21,16 +21,21 @@ $headcolor: #80888a;
     line-height: 39px
 }
 
-@mixin kkbook-style{
+@mixin kkbook-style {
     display: flex;
-        justify-content: space-around;
-        width: 500px;
-        height: 400px;
-    font-size: 13px;      
-    padding-top: 10px; 
-    
-    li{padding: 3px;}
-    a{color:$headcolor;}
+    justify-content: space-around;
+    width: 500px;
+    height: 400px;
+    font-size: 13px;
+    padding-top: 10px;
+
+    li {
+        padding: 3px;
+    }
+
+    a {
+        color: $headcolor;
+    }
 }
 
 // 헤더 
@@ -178,7 +183,8 @@ header {
             white-space: nowrap; // 한 줄만
             color: $headcolor;
         }
-        h5{
+
+        h5 {
             margin-left: 100px;
             color: $headcolor;
             background-color: #eaeded;
@@ -234,10 +240,13 @@ header {
         width: 160px;
         height: 50px;
         cursor: pointer;
-        li{margin: 10px;}
-       
-        
-        &:hover{
+
+        li {
+            margin: 10px;
+        }
+
+
+        &:hover {
             background-color: #333333;
             border-radius: 10px 10px 0 0;
             opacity: 0.7;
@@ -292,9 +301,73 @@ header {
 
 .slider {
     width: 100%;
-    height: 450px;
-    background-color: gold;
+    height: 350px;
+    background-color: cornflowerblue;
+    position: relative;
     
+    
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper {
+        width: 100%;
+        height: 500px;
+        position: absolute;
+    }
+
+    .swiper-slide img {
+
+        width: 100%;
+        height: 430px;
+        
+        border-radius: 20px;
+    }
+    // .swiper-pagination{
+    //     color: #fff;
+    //     background-color: #333333;
+    //     width: 79px;
+    //     border-radius: 20px;
+        
+        
+    // }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 425px;
+        border-radius: 20px;
+        margin-top: 50px;
+
+    }
+
+    .append-buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .append-buttons a {
+        display: inline-block;
+        border: 1px solid #007aff;
+        color: #007aff;
+        text-decoration: none;
+        padding: 4px 10px;
+        border-radius: 4px;
+        margin: 0 10px;
+        font-size: 13px;
+    }
+
+
+
+
     .sub {
         
         height: 450px;
@@ -304,28 +377,37 @@ header {
         position: absolute;
         z-index: 1000;
         
+       
+        
     }
 
     .kbook {
         width: 160px;
         height: 450px;
         background-color: #f6f6f6;
-        
+
         display: flex;
         flex-flow: column;
         justify-content: space-between;
         
-        .kkbook{
-            li{padding: 13px;}
-            li:hover{background-color: #fff;}
-            li:hover::after{
+        .kkbook {
+            li {
+                padding: 13px;
+            }
+
+            li:hover {
+                background-color: #fff;
+            }
+
+            li:hover::after {
                 content: "⟩";
                 float: right;
                 color: $headcolor;
 
             }
         }
-        .survice{
+
+        .survice {
             display: flex;
             background-color: #eaeded;
             width: 160px;
@@ -335,39 +417,49 @@ header {
 
         }
     }
-    
+
     .kbook2 {
         display: flex;
         flex-flow: column;
-        
+
 
         background-color: #fff;
-        .kkbook2{
+
+        .kkbook2 {
             @include kkbook-style();
-            
+
         }
-        .kkbook3{
+
+        .kkbook3 {
             @include kkbook-style();
             display: none;
             justify-content: space-around;
-            padding-right:100px
+            padding-right: 100px
         }
-        .kkbook4{
+
+        .kkbook4 {
             @include kkbook-style();
             font-size: 12px;
             display: none
         }
     }
-    .bigbook{
+
+    .bigbook {
         width: 400px;
         height: auto;
         background-color: #fff;
-       img{width: 50%; height: 50%; }
+
+        img {
+            width: 50%;
+            height: 50%;
+        }
+
         display: flex;
         flex-flow: wrap;
-        
+
     }
-    .survice2{
+
+    .survice2 {
         width: 100%;
         height: 70px;
         display: flex;
@@ -375,25 +467,63 @@ header {
         justify-content: space-evenly;
         align-items: center;
         background-color: #f6f6f6;
-        
-        a{color:$headcolor;}
-        li{font-size: 13px;}
-        
+
+        a {
+            color: $headcolor;
+        }
+
+        li {
+            font-size: 13px;
+        }
+
     }
-   
+    
 
 }
 
 .section-shorts {
     width: 100%;
     height: 183px;
-    background-color: bisque;
+    
+    .shortsbox{
+        width: 130px;
+        height: 184px;
+        background-color: #fff;
+        img{width: 72px; height: 104px;}
+        text-align: center;
+        margin: 10px;
+        box-shadow: 1px 0px 3px 3px ;
+        display: flex; 
+        flex-flow: column;
+        justify-content: space-evenly;
+        align-items: center;
+        p{background-color: tomato; color: #fff; border-radius: 5px; width: 80px;
+        font-size: 11px;}
+        h6{color: $headcolor;}
+       
+        
+    }
+
 }
 
 .section-todaybook {
     width: 100%;
     height: 442px;
-    background-color: coral;
+    img{width: 12px; height: 12px; border-radius: 100%;}
+    .todayheader{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .todaymini{
+        width: 100px;
+        height: 40px;
+        display: flex;
+        flex-flow: wrap;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14px;
+    }
 }
 
 .section-bestbook {
