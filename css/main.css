@@ -392,6 +392,15 @@ header .scroll {
 .section-shorts {
   width: 100%;
   height: 183px;
+  position: relative;
+}
+.section-shorts :nth-of-type(1) {
+  left: 150px;
+  top: 180px;
+}
+.section-shorts :nth-of-type(2) {
+  left: 150px;
+  top: 380px;
 }
 .section-shorts .shortsbox {
   width: 130px;
@@ -404,6 +413,7 @@ header .scroll {
   flex-flow: column;
   justify-content: space-evenly;
   align-items: center;
+  position: absolute;
 }
 .section-shorts .shortsbox img {
   width: 72px;
@@ -425,8 +435,8 @@ header .scroll {
   height: 442px;
 }
 .section-todaybook img {
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
   border-radius: 100%;
 }
 .section-todaybook .todayheader {
@@ -442,6 +452,29 @@ header .scroll {
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
+}
+.section-todaybook .todaymini a {
+  color: #646465;
+}
+.section-todaybook .todaytab p {
+  color: #80888a;
+  font-size: 14px;
+}
+.section-todaybook .todayicon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-todaybook .todayicon .todayicon-box {
+  width: 64px;
+  height: 64px;
+  background-color: #f6f6f6;
+  border-radius: 100%;
+  text-align: center;
+}
+.section-todaybook .todayicon img {
+  width: 100%;
+  height: 100%;
 }
 
 .section-bestbook {
