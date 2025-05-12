@@ -174,10 +174,58 @@ async function bookData3() {
       box.append(`<p>BEST SELLER</p>`)
       box.append(`<h6>${book.title}</h6>`);
       
+      
     }
   }
 }
-
 bookData3();
 
 
+  // 날짜 자동으로 갱신
+  function upDate(){
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth()+1;
+    const date = today.getDate();
+
+    document.getElementsByClassName('todaydate')[0].innerHTML=`${year}년 ${month}월 ${date}일`;
+  }
+  upDate();
+
+
+// 오늘의 책
+async function bookData4() {
+  const boxes = $('.todaybox');
+  const booksearch = ['바움가트너', '과자 사면 과학 드립니다','닥터프렌즈의 구사일생','인구 충격 부동산','귀하신 몸'];
+
+  for (let i = 0; i < booksearch.length; i++) {
+    const query = booksearch[i];
+
+    const params = new URLSearchParams({
+      target: 'title',
+      query: query
+    });
+
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    const data = await response.json();
+    const book = data.documents[0];
+    
+    if (book && boxes[i]) {
+      const box = boxes.eq(i);
+      box.html(""); 
+      box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+      box.append(`<h5>${book.title}</h5>`);
+      box.append(`<h6>${book.authors}</6>`);
+
+      
+      }
+
+  }
+}
+bookData4();
