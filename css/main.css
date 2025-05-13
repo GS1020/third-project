@@ -554,16 +554,108 @@ header .scroll {
   font-weight: 300;
 }
 
-.section-newbook {
+.section-bestbook {
   width: 100%;
   height: 554px;
-  background-color: lightblue;
+  margin-top: 70px;
+}
+.section-bestbook .besthead {
+  display: flex;
+  justify-content: space-between;
+  color: #3d3c3f;
+}
+.section-bestbook .besthead img {
+  width: 25px;
+}
+.section-bestbook .besthead2 {
+  display: flex;
+}
+.section-bestbook .besthead2 .date {
+  padding: 10px;
+}
+.section-bestbook .besthead-li {
+  width: 100%;
+  height: 70px;
+  margin-top: 20px;
+}
+.section-bestbook .besthead-li .besthead-lii {
+  background-color: #4aaf70;
+}
+.section-bestbook .besthead-li .besthead-lii a {
+  color: #fff;
+}
+.section-bestbook .besthead-li li {
+  font-size: 14px;
+  padding: 12px;
+  background-color: #f6f6f6;
+  display: inline;
+  border-radius: 20px;
+  margin: 3px;
+}
+.section-bestbook .besthead-li li a {
+  color: #80888a;
+}
+.section-bestbook .bestbox {
+  width: 100%;
+  height: 320px;
+  background-color: #4aaf70;
+}
+.section-bestbook .bestbox html,
+.section-bestbook .bestbox body {
+  position: relative;
+  height: 100%;
+}
+.section-bestbook .bestbox body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.section-bestbook .bestbox .swiper {
+  width: 100%;
+  padding-top: 0px;
+  padding-bottom: 50px;
+}
+.section-bestbook .bestbox .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  padding: 10px;
+}
+.section-bestbook .bestbox .textbox h5 {
+  color: #fff;
+  font-size: 20px;
+  margin-top: 10px;
+  width: 160px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.section-bestbook .bestbox .textbox h6 {
+  color: #fff;
+  font-size: 18px;
+}
+.section-bestbook .bestbox .textbox p {
+  color: #fff;
+  font-size: 12px;
+  width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.section-bestbook .bestbox .swiper-slide img {
+  display: block;
+  width: 50%;
+  height: 70%;
+  text-align: center;
 }
 
 .section-promotion {
   width: 100%;
   height: 120px;
-  background-color: navy;
 }
 
 .section-popular {
@@ -599,7 +691,35 @@ header .scroll {
 .notice {
   width: 100%;
   height: 55px;
-  background-color: peru;
+  background-color: #fff;
+  padding-top: 15px;
+  border-top: solid 2px #eaeded;
+  overflow: hidden;
+}
+.notice .notice-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.notice .notice-center .gong2 {
+  width: 504px;
+  height: 29px;
+  overflow: hidden;
+}
+.notice .notice-center .gong2 a {
+  color: #80888a;
+}
+.notice .notice-center .gong3 {
+  font-size: 20px;
+}
+.notice .notice-center .gong3 a {
+  color: #80888a;
+}
+.notice .notice-center .gong4 {
+  width: 600px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 
 footer {

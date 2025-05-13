@@ -221,7 +221,7 @@ async function bookData4() {
       box.html(""); 
       box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
       box.append(`<h5>${book.title}</h5>`);
-      box.append(`<h6>${book.authors}</6>`);
+      box.append(`<h6>${book.authors}</h6>`);
 
       
       }
@@ -229,3 +229,86 @@ async function bookData4() {
   }
 }
 bookData4();
+
+$(document).ready(function(){
+  function slide1(){
+    $('.gong2').stop().animate({marginTop:-40},800,function(){
+      $('.gong2 li:first').appendTo('.gong2');
+      $('.gong2').css({marginTop:0});
+    });
+  }
+  setInterval(slide1,3000);
+});
+
+
+var swiper2 = new Swiper(".mySwiper2", {
+      slidesPerView: 1,
+      spaceBetween: 10,
+       effect: "coverflow",
+       coverflowEffect: {
+  slideShadows: false,
+},
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+        },
+      },
+    });
+
+
+
+async function bookData5() {
+  const boxes = $('.mySwiper2 .swiper-slide');
+  const booksearch = [
+    '흔한남매', '결국 국민이 합니다', '모순', '급류', '대한민국헌법',
+    '청춘의 독서', '소년이 온다', '쇼펜하우어 인생수업', '파과', '단 한 번의 삶'
+  ];
+
+  for (let i = 0; i < booksearch.length; i++) {
+    const query = booksearch[i];
+
+    const params = new URLSearchParams({
+      target: 'title',
+      query: query
+    });
+
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    const data = await response.json();
+    const book = data.documents[0];
+    const ten = book.contents.substring(0,60);
+    
+    if (book && boxes[i]) {
+      const box = boxes.eq(i);
+     
+      box.html(""); 
+      box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+      box.append(`<div class="textbox"><h5>${book.title}</h5></div>`);
+      box.append(`<div class="textbox"><h6>${book.authors}</h6></div>`);
+      box.append(`<div class="textbox"><p>${ten}</p></div>`);
+
+      
+      }
+
+  }
+}
+bookData5();
+
