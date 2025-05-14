@@ -127,17 +127,17 @@ bookData();
 // 스와이프
 let appendNumber = 600;
 let prependNumber = 1;
-const swiper = new Swiper('.swiper', {
+const swiper1 = new Swiper('.mySwiper1', {
   slidesPerView: 3,
   centeredSlides: true,
   spaceBetween: 30,
   pagination: {
-    el: '.swiper-pagination',
+    el: '.mySwiper1 .swiper-pagination',
     type: 'fraction',
   },
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.mySwiper1-button-next',
+    prevEl: '.mySwiper1-button-prev',
   },
 
 });
@@ -249,7 +249,7 @@ var swiper2 = new Swiper(".mySwiper2", {
   slideShadows: false,
 },
       pagination: {
-        el: ".swiper-pagination",
+        el: ".mySwiper2 .swiper-pagination",
         clickable: true,
       },
       breakpoints: {
@@ -294,16 +294,19 @@ async function bookData5() {
 
     const data = await response.json();
     const book = data.documents[0];
-    const ten = book.contents.substring(0,60);
+    const ten = book.contents.substring(0,150);
     
     if (book && boxes[i]) {
       const box = boxes.eq(i);
      
       box.html(""); 
       box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
-      box.append(`<div class="textbox"><h5>${book.title}</h5></div>`);
-      box.append(`<div class="textbox"><h6>${book.authors}</h6></div>`);
-      box.append(`<div class="textbox"><p>${ten}</p></div>`);
+      box.append(`<div class="textbox">
+          <h5>${book.title}</h5>
+          <h6>${book.authors}</h6>
+          <p>${ten}</p>
+          </div>
+        `);
 
       
       }
@@ -312,3 +315,159 @@ async function bookData5() {
 }
 bookData5();
 
+// 화제의 책들 스와이퍼
+
+var swiper3 = new Swiper(".mySwiper3", {
+      slidesPerView: 5,
+      slidesPerGroup:5,
+      spaceBetween: 30,
+      freeMode: true,
+      pagination: {
+        el: ".mySwiper3-pagination",
+        clickable: true,
+      },
+    });
+
+
+
+
+
+async function bookData6() {
+  const params = new URLSearchParams({
+    target: 'title',
+    query:'셀러',
+    size:30
+  });
+
+  try {
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP 오류 발생! 상태 코드: ${response.status}`);
+    }
+
+    const data = await response.json();
+    const boxx = $('.mySwiper3 .swiper-slide');
+
+    for (let i = 0; i < 30; i++) {
+      const books = data.documents[i]; 
+      $(boxx[i]).append(`<img src="${books.thumbnail}" alt="${books.title}">`);
+      $(boxx[i]).append(`<div class=hotbox>
+        <h5>${books.title}</h5>
+        <h6>${books.authors}</h6>
+        `)
+    }
+  } catch (error) {
+    console.error('오류 발생:', error);
+  }
+}
+
+bookData6();
+
+
+async function bookData7() {
+  const boxes = $('.recent-bookbox');
+  const booksearch = [
+    '내 꿈에 가끔만 놀러와','김켈리의 신비마트3','완벽주의자의 조용한 우울','모든 것이 양자 이론','고음질 명반 가이드북'
+  ];
+
+  for (let i = 0; i < booksearch.length; i++) {
+    const query = booksearch[i];
+
+    const params = new URLSearchParams({
+      target: 'title',
+      query: query
+    });
+
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    const data = await response.json();
+    const book = data.documents[0];
+    
+    
+    if (book && boxes[i]) {
+      const box = boxes.eq(i);
+     
+      box.html(""); 
+      box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+      box.append(`<div class="textbox">
+          <h5>${book.title}</h5>
+          <h6>${book.authors}</h6>
+          
+          </div>
+        `);
+
+      
+      }
+
+  }
+}
+bookData7();
+
+
+// 급상승 도서 스와이프
+    var swiper4 = new Swiper(".mySwiper4", {
+      slidesPerView: 5,
+      spaceBetween: 30,
+      slidesPerGroup:5,
+      freeMode: true,
+      pagination: {
+        el: ".mySwiper4-pagination",
+        clickable: true,
+      },
+    });
+
+
+async function bookData8() {
+  const boxes = $('.mySwiper4 .swiper-slide');
+  const booksearch = [
+   '청춘의 독서','빛과 실','어른 김장하 각본','흔한남매 19','시간 유전자','너였구나','똥볶이 할멈','돈과 시간을 장악','채식주의자','작별하지 않는다','긴긴밤','별에게','별별 직업 상담소','마음의 기술','초등일타과학'
+  ];
+
+  for (let i = 0; i < booksearch.length; i++) {
+    const query = booksearch[i];
+
+    const params = new URLSearchParams({
+      target: 'title',
+      query: query
+    });
+
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    const data = await response.json();
+    const book = data.documents[0];
+    
+    
+    if (book && boxes[i]) {
+      const box = boxes.eq(i);
+     
+      box.html(""); 
+      box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+      box.append(`<div class="upbox">
+          <h5>${book.title}</h5>
+          <h6>${book.authors}</h6>
+          
+          </div>
+        `);
+
+      
+      }
+
+  }
+}
+bookData8();  
