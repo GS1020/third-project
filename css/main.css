@@ -505,14 +505,16 @@ header .scroll {
 .section-todaybook2 {
   width: 100%;
   height: 434px;
+  display: flex;
   line-height: 50px;
-}
-.section-todaybook2 img {
-  width: 25px;
 }
 .section-todaybook2 h2 {
   font-weight: 500;
+  margin-left: 10px;
   color: #333;
+}
+.section-todaybook2 img {
+  width: 25px;
 }
 .section-todaybook2 .todaytop {
   display: flex;
@@ -522,36 +524,47 @@ header .scroll {
 .section-todaybook2 .todaytop2 {
   width: 300px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
-.section-todaybook2 .todaybigbox {
+.section-todaybook2 .todaytop2 h2 {
+  margin-left: 0px;
+}
+
+.todaybigbox {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 280px;
+  width: 100%;
   margin-top: 30px;
 }
-.section-todaybook2 .todaybigbox :hover {
+.todaybigbox :hover {
   cursor: pointer;
 }
-.section-todaybook2 .todaybigbox .todaybox {
+.todaybigbox .todaybox {
   width: 190px;
   height: 280px;
   display: flex;
   flex-flow: column;
 }
-.section-todaybook2 .todaybigbox .todaybox img {
+.todaybigbox .todaybox img {
   width: 100%;
   height: 100%;
 }
-.section-todaybook2 .todaybigbox .todaybox h5 {
+.todaybigbox .todaybox h5 {
   height: 20px;
   font-size: 14.8px;
   font-weight: 500;
+  text-align: center;
 }
-.section-todaybook2 .todaybigbox .todaybox h6 {
+.todaybigbox .todaybox h6 {
   height: 20px;
   font-size: 13px;
   color: #80888a;
+  text-align: center;
+}
+.todaybigbox .todaybox p {
+  font-size: 12px;
 }
 
 .section-bestbook {
@@ -675,13 +688,15 @@ header .scroll {
 .section-popular .hothead {
   display: flex;
   justify-content: space-between;
+  display: flex;
 }
-.section-popular img {
-  width: 25px;
-}
-.section-popular h2 {
+.section-popular .hothead h2 {
   font-weight: 500;
+  margin-left: 10px;
   color: #333;
+}
+.section-popular .hothead img {
+  width: 25px;
 }
 .section-popular .hothead-li {
   margin-top: 20px;
@@ -753,6 +768,9 @@ header .scroll {
 .section-popular .hotbox h6 {
   color: rgba(48, 48, 48, 0.6);
 }
+.section-popular p {
+  font-size: 12px;
+}
 
 .naver {
   width: 100%;
@@ -773,6 +791,7 @@ header .scroll {
 .section-recent .recent-head {
   display: flex;
   align-items: center;
+  display: flex;
 }
 .section-recent .recent-head h2 {
   font-weight: 500;
@@ -804,10 +823,15 @@ header .scroll {
 .section-recent .recent-book h5 {
   font-weight: 500;
   margin: 5px 0 5px 0;
+  text-align: center;
 }
 .section-recent .recent-book h6 {
   color: #80888a;
   font-size: 13px;
+  text-align: center;
+}
+.section-recent .recent-book p {
+  font-size: 12px;
 }
 
 .section-up {
@@ -816,6 +840,7 @@ header .scroll {
   margin-top: 70px;
 }
 .section-up .up-head {
+  display: flex;
   display: flex;
 }
 .section-up .up-head h2 {
@@ -830,6 +855,7 @@ header .scroll {
   width: 100%;
   height: 390px;
   margin-top: 30px;
+  cursor: pointer;
 }
 .section-up .up-slide html,
 .section-up .up-slide body {
@@ -868,14 +894,8 @@ header .scroll {
   color: #80888a;
   font-size: 13px;
 }
-.section-up .up-slide .swiper-slide .upoverlay {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #333;
-  opacity: 0.7;
-  color: #fff;
-  transition: opacity 0.3s ease;
+.section-up .up-slide .swiper-slide p {
+  font-size: 12px;
 }
 .section-up .up-slide .swiper-slide img {
   display: block;
@@ -885,16 +905,168 @@ header .scroll {
      object-fit: cover;
 }
 
-.section-MD {
+.hotbook {
   width: 100%;
   height: 430px;
-  background-color: forestgreen;
+}
+.hotbook .hotbook-head {
+  display: flex;
+  margin-bottom: 20px;
+}
+.hotbook .hotbook-head h2 {
+  font-weight: 500;
+  margin-left: 10px;
+  color: #333;
+}
+.hotbook .hotbook-head img {
+  width: 25px;
+}
+.hotbook .hotbook-slide {
+  width: 100%;
+  height: 390px;
+}
+.hotbook .hotbook-slide html,
+.hotbook .hotbook-slide body {
+  position: relative;
+  height: 100%;
+}
+.hotbook .hotbook-slide body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.hotbook .hotbook-slide .swiper {
+  width: 100%;
+  height: 100%;
+}
+.hotbook .hotbook-slide .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+.hotbook .hotbook-slide .swiper-slide h5 {
+  font-weight: 500;
+  margin: 5px 0 5px 0;
+}
+.hotbook .hotbook-slide .swiper-slide h6 {
+  color: #80888a;
+  font-size: 13px;
+}
+.hotbook .hotbook-slide .swiper-slide p {
+  font-size: 12px;
+}
+.hotbook .hotbook-slide .swiper-slide img {
+  display: block;
+  width: 188px;
+  height: 273px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.favorite-book {
+.bar {
   width: 100%;
-  height: 490px;
+  height: 120px;
+  background-color: #FFACCF;
+  margin-top: 70px;
+}
+.bar img {
+  width: 100%;
+  height: 100%;
+}
+
+.how-book {
+  width: 100%;
+  height: 516px;
   background-color: brown;
+}
+.how-book .howbook-head {
+  display: flex;
+}
+.how-book .howbook-head h2 {
+  font-weight: 500;
+  margin-left: 10px;
+  color: #333;
+}
+.how-book .howbook-head img {
+  width: 25px;
+}
+.how-book html,
+.how-book body {
+  position: relative;
+  height: 100%;
+}
+.how-book body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.how-book .swiper {
+  width: 100%;
+  height: 100%;
+}
+.how-book .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 590px;
+  height: 406px;
+  margin: 10px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+}
+.how-book .swiper-slide .howbox {
+  width: 600px;
+  height: 166px;
+  background-color: #007aff;
+}
+.how-book .swiper-slide .howbox h3 {
+  color: #80888a;
+}
+.how-book .swiper-slide .howbox .howflex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  line-height: 30px;
+  padding: 10px;
+}
+.how-book .swiper-slide .howbox .howflex h2 {
+  font-size: 18px;
+  font-weight: 500;
+}
+.how-book .swiper-slide .howbox .logobox {
+  width: 100%;
+}
+.how-book .swiper-slide .howbox .logobox img {
+  width: 28px;
+  border-radius: 50%;
+}
+@media (max-width: 760px) {
+  .how-book .swiper-button-next {
+    right: 20px;
+    transform: rotate(90deg);
+  }
+  .how-book .swiper-button-prev {
+    left: 20px;
+    transform: rotate(90deg);
+  }
 }
 
 .section-goodreview {
@@ -935,6 +1107,7 @@ header .scroll {
   display: flex;
   justify-content: space-between;
   text-align: center;
+  position: relative;
 }
 
 footer {
