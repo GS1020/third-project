@@ -674,6 +674,7 @@ bookData9();
 var swiper6 = new Swiper('.mySwiper6', {
       slidesPerView: 3,
       centeredSlides: true,
+      spaceBetween:30,
       loop: true,
       direction: getDirection(),
       navigation: {
@@ -732,7 +733,7 @@ async function bookData10() {
 }
 
 bookData10();
-// 할인 슬라이드 스와이퍼
+// 할인 슬라이드
 var swiper7 = new Swiper(".mySwiper7", {
   slidesPerView: 1,
   spaceBetween: 10,
