@@ -127,8 +127,11 @@ bookData();
 // 스와이프
 let appendNumber = 600;
 let prependNumber = 1;
+
 const swiper1 = new Swiper('.mySwiper1', {
   slidesPerView: 3,
+  
+      loop: true,
   centeredSlides: true,
   spaceBetween: 30,
   pagination: {
@@ -670,6 +673,8 @@ bookData9();
 
 var swiper6 = new Swiper('.mySwiper6', {
       slidesPerView: 3,
+      centeredSlides: true,
+      loop: true,
       direction: getDirection(),
       navigation: {
         nextEl: '.mySwiper6-button-next',
@@ -677,7 +682,7 @@ var swiper6 = new Swiper('.mySwiper6', {
       },
       on: {
         resize: function () {
-          swiper.changeDirection(getDirection());
+          swiper6.changeDirection(getDirection());
         },
       },
     });
@@ -688,3 +693,142 @@ var swiper6 = new Swiper('.mySwiper6', {
 
       return direction;
     }
+
+
+    // 이런책은 어떠세요 슬라이더
+async function bookData10() {
+  const boxes = $('.mySwiper6 .swiper-slide');
+  const queryList = ['트럼프', 'AI 시대', '노벨문학상', '둘리', '교황', '바르가스', '계절들'];
+
+  for (let i = 0; i < queryList.length; i++) {
+    const params = new URLSearchParams({
+      target: 'title',
+      query: queryList[i],
+      size: 4
+    });
+
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    const data = await response.json();
+
+    if (boxes[i]) {
+      
+      const $box = $(boxes[i]);
+      const $imgbox = $('<div class="imgbox" style="width:600px; height:210px"></div>');
+      $box.append($imgbox);
+
+      
+      for (let j = 0; j < data.documents.length; j++) {
+        const book = data.documents[j];
+        $imgbox.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+      }
+    }
+  }
+}
+
+bookData10();
+// 할인 슬라이드 스와이퍼
+var swiper7 = new Swiper(".mySwiper7", {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  slidesPerGroup: 5,
+  pagination: {
+    el: ".mySwiper7-pagination",
+    clickable: true,
+  },
+  // freeMode: false,
+  // loop:false,
+  breakpoints: {
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    768: {
+      slidesPerView: 4,
+      spaceBetween: 40,
+    },
+    1024: {
+      slidesPerView: 5,
+      spaceBetween: 50,
+    },
+  },
+});
+
+
+// 할인 슬라이드
+async function bookData11() {
+  const boxes = $('.mySwiper7 .swiper-slide');
+  const booksearch = [
+    '지능의 역사: 인류의 기원','초판본 데미안','어제와 똑같은 내가 싫어서','안나 카레니나 1','1만명 리더의 고민',
+    '어린 왕자(1943년)','365 괴테 일력','카라마조프가의 형제들','오페라의 유령(더클래식)','나의 MBTI가 궁금하단 마리몽'
+  ];
+
+  for (let i = 0; i < booksearch.length; i++) {
+    const query = booksearch[i];
+
+    const params = new URLSearchParams({
+      target: 'title',
+      query: query
+    });
+
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    const data = await response.json();
+    const book = data.documents[0];
+
+
+    if (book && boxes[i]) {
+      const box = boxes.eq(i);
+
+      box.html("");
+      box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+      box.append(`<div class="salebookbox">
+          <h5>${book.title}</h5>
+          <h6>${book.authors}</h6>
+          <h7>${book.price+"원"}</h7>
+          </div>`
+
+      );
+      const ten = book.contents.substring(0, 160);
+      box.append(`<div class="overlay"
+        style="background-color:#333;width:192px;height:282px;opacity:0.9;color:#fff; position:absolute; padding:20px; display:none"></div>`);
+      box.find('.overlay').append(`<p>${ten}</p>`)
+
+      box.find('.overlay').append(`<div class="overlaybox" style="display: flex; justify-content: space-around; gap: 10px; margin-top: 10px; padding:10px"></div>`);
+
+
+      box.find('.overlaybox').append(`
+  <div class="view" style="width:40px; height:40px; color:#fff; border:2px solid #fff; line-height:35px; text-align:center;">
+    <p style="margin:0;">View</p>
+  </div>
+`);
+
+      box.find('.overlaybox').append(`
+  <div class="view" style="width:40px; height:40px; color:#fff; border:2px solid #fff; line-height:35px; text-align:center;">
+    <p style="margin:0;">Cart</p>
+  </div>
+`);
+
+
+
+      box.mouseenter(function () {
+        $(this).children('.overlay').stop().fadeIn();
+      }).mouseleave(function () {
+        $(this).children('.overlay').stop().fadeOut();
+      });
+
+    }
+
+  }
+}
+bookData11();  

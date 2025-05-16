@@ -64,19 +64,20 @@ $headcolor: #80888a;
     }
 }
 
-@mixin headh2{
-     display: flex;
-        
-        h2 {
-            font-weight: 500;
-            margin-left: 10px;
-            color: #333;
-        }
+@mixin headh2 {
+    display: flex;
 
-        img {
-            width: 25px;
-        }
+    h2 {
+        font-weight: 500;
+        margin-left: 10px;
+        color: #333;
+    }
+
+    img {
+        width: 25px;
+    }
 }
+
 // 헤더 
 header {
     .scroll {
@@ -138,6 +139,11 @@ header {
 .biginput {
     position: relative;
     padding-top: 40px;
+
+    input::placeholder {
+        color: $headcolor;
+        opacity: 0.8;
+    }
 
     .search-icon {
         position: absolute;
@@ -233,7 +239,7 @@ header {
             cursor: pointer;
             margin-top: 15px;
         }
-        
+
     }
 
 }
@@ -334,7 +340,17 @@ header {
     background-color: cornflowerblue;
     position: relative;
 
-
+    .swiper-pagination{
+        color: #fff;
+        background-color: #333;
+        width: 90px;
+        opacity: 0.7;
+        position: absolute;
+        top: 100;
+        left: 900px;
+        padding: 10px;
+        border-radius: 20px;
+    }
     body {
         background: #eee;
         font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -345,16 +361,22 @@ header {
     }
 
     .swiper-button-next {
-        color: #fff;
-        left: 66.3%;
-        background-color: #b5b4b6;
+        color: $headcolor;
+        border: 1px solid #ededed;
+        left: 65.5%;
+        background-color: #ffffff;
+        border-radius: 50%;
+        padding: 30px;
         opacity: 0.7;
     }
 
     .swiper-button-prev {
-        color: #fff;
-        left: 32.4%;
-        background-color: #b5b4b6;
+        color: $headcolor;
+        border: 1px solid #ededed;
+        left: 31.3%;
+        background-color: #ffffff;
+        border-radius: 50%;
+        padding: 30px;
         opacity: 0.7;
     }
 
@@ -671,54 +693,59 @@ header {
         width: 300px;
         display: flex;
         justify-content: space-between;
-        h2{margin-left: 0px;}
+
+        h2 {
+            margin-left: 0px;
+        }
     }
 }
-    .todaybigbox {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 280px;
-        width: 100%;
-        :hover {
-            cursor: pointer;
-        }
 
-        margin-top: 30px;
+.todaybigbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 280px;
+    width: 100%;
 
-        .todaybox {
-            width: 190px;
-            height: 280px;
-
-            img {
-                width: 100%;
-                height: 100%;
-            }
-
-            display: flex;
-            flex-flow: column;
-
-            h5 {
-                height: 20px;
-                font-size: 14.8px;
-                font-weight: 500;
-                text-align: center;
-            }
-
-            h6 {
-                height: 20px;
-                font-size: 13px;
-                color: $headcolor;
-                text-align: center;
-            }
-
-            p{
-            font-size: 12px;
-            
-             }
-
-        }
+    :hover {
+        cursor: pointer;
     }
+
+    margin-top: 30px;
+
+    .todaybox {
+        width: 190px;
+        height: 280px;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        display: flex;
+        flex-flow: column;
+
+        h5 {
+            height: 20px;
+            font-size: 14.8px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        h6 {
+            height: 20px;
+            font-size: 13px;
+            color: $headcolor;
+            text-align: center;
+        }
+
+        p {
+            font-size: 12px;
+
+        }
+
+    }
+}
 
 
 .section-bestbook {
@@ -739,10 +766,12 @@ header {
 
     .besthead2 {
         display: flex;
-        h2{
+
+        h2 {
             font-weight: 500;
             color: #333;
         }
+
         .date {
             padding: 10px
         }
@@ -804,8 +833,8 @@ header {
             display: flex;
             flex-flow: column;
             justify-content: space-evenly;
-            
-            
+
+
 
             h5 {
                 color: #fff;
@@ -859,7 +888,7 @@ header {
         @include headh2();
     }
 
-    
+
 
     .hothead-li {
         margin-top: 20px;
@@ -920,7 +949,7 @@ header {
             object-fit: cover;
         }
 
-        
+
 
 
     }
@@ -935,12 +964,13 @@ header {
         h6 {
             color: #30303099;
         }
-         
+
     }
-    p{
-            font-size: 12px;
-            
-        }
+
+    p {
+        font-size: 12px;
+
+    }
 }
 
 .naver {
@@ -979,13 +1009,14 @@ header {
         .recent-bookbox {
             width: 192px;
             height: 290px;
-            
+
         }
 
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border: 1px solid #eaeded;
         }
 
         h5 {
@@ -999,9 +1030,10 @@ header {
             font-size: 13px;
             text-align: center;
         }
-         p{
+
+        p {
             font-size: 12px;
-            
+
         }
     }
 }
@@ -1012,71 +1044,74 @@ header {
     width: 100%;
     height: 500px;
     margin-top: 70px;
-    
+
     .up-head {
         display: flex;
-        
+
         @include headh2();
     }
 
-    .up-slide{
+    .up-slide {
         width: 100%;
         height: 390px;
         margin-top: 30px;
         cursor: pointer;
-    html,
-    body {
-      position: relative;
-      height: 100%;
-    }
 
-
-    body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
-
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-flow: column;
-      position: relative;
-      h5 {
-            font-weight: 500;
-            margin: 5px 0 5px 0;
+        html,
+        body {
+            position: relative;
+            height: 100%;
         }
 
-        h6 {
-            color: $headcolor;
-            font-size: 13px;
-        }
-         p{
-            font-size: 12px;
-            
-        }
-    }
 
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 70%;
-      object-fit: cover;
-    }
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-flow: column;
+            position: relative;
+
+            h5 {
+                font-weight: 500;
+                margin: 5px 0 5px 0;
+            }
+
+            h6 {
+                color: $headcolor;
+                font-size: 13px;
+            }
+
+            p {
+                font-size: 12px;
+
+            }
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 70%;
+            object-fit: cover;
+        }
 
     }
 }
@@ -1084,171 +1119,347 @@ header {
 .hotbook {
     width: 100%;
     height: 430px;
-    
+
     .hotbook-head {
         @include headh2();
         margin-bottom: 20px;
     }
 
-    .hotbook-slide{
+    .hotbook-slide {
         width: 100%;
         height: 390px;
-            html,
+
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90%;
+            width: 100%;
+            display: flex;
+            flex-flow: column;
+            justify-content: flex-start;
+            cursor: pointer;
+
+
+            h5 {
+                font-weight: 500;
+                margin: 5px 0 5px 0;
+            }
+
+            h6 {
+                color: $headcolor;
+                font-size: 13px;
+            }
+
+            p {
+                font-size: 12px;
+
+            }
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 188px;
+            height: 273px;
+            object-fit: cover;
+        }
+    }
+}
+
+
+.bar {
+    width: 100%;
+    height: 120px;
+    background-color: #FFACCF;
+    margin-top: 70px;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.how-book {
+    width: 100%;
+    height: 516px;
+    margin-top: 70px;
+
+     .swiper-slide-active,
+        .swiper-slide-duplicate-active {
+        opacity: 1 !important;
+        transform: scale(1) !important;
+        filter: none !important; 
+        }
+    .howbook-head {
+        @include headh2();
+    }
+
+    html,
     body {
-      position: relative;
-      height: 100%;
+        position: relative;
+        height: 100%;
     }
 
     body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
     }
 
     .swiper {
-      width: 100%;
-      height: 100%;
+        width: 100%;
+        height: 100%;
+
+        .swiper-button-next {
+            color: $headcolor;
+            border: 1px solid #ededed;
+            left: 71.3%;
+            background-color: #ffffff;
+            border-radius: 50%;
+            padding: 30px;
+            box-shadow: 2px 2px 4px #333;
+        }
+
+        .swiper-button-prev {
+            color: $headcolor;
+            border: 1px solid #ededed;
+            left: 28.4%;
+            background-color: #ffffff;
+            border-radius: 50%;
+            padding: 30px;
+            box-shadow: 2px 2px 4px #333;
+
+        }
+    }
+
+
+        
+
+
+    .mySwiper6 .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fffbf0;
+        width: 700px;
+        height: 406px;
+        margin: 10px 10px 20px 10px;
+        display: flex;
+        flex-flow: column-reverse;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #ededed;
+        border-radius: 20px;
+        opacity: 0.3;
+        transform: scale(0.9);
+        filter: blur(2px);
+        
+        
+        .imgbox {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            img {
+                cursor: pointer;
+            }
+        }
+
+        .howbox {
+            width: 100%;
+            height: 166px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 20px;
+
+            h3 {
+                color: $headcolor;
+            }
+
+            .howflex {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                line-height: 30px;
+                padding: 10px;
+
+                h3 {
+                    cursor: pointer;
+                }
+
+                h2 {
+                    font-size: 18px;
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+
+            }
+
+            .howtext {
+                display: flex;
+                flex-flow: column;
+                align-items: flex-start;
+                padding: 10px;
+
+                h3 {
+                    font-weight: 400;
+                    font-size: 14px;
+                    cursor: pointer;
+                }
+
+                p {
+                    color: $headcolor;
+                    font-size: 14px;
+                    cursor: pointer;
+                }
+            }
+
+            .logobox {
+                width: 100%;
+                display: flex;
+                padding: 5px;
+                align-items: center;
+                border-top: solid 1px #eee;
+
+                h3 {
+                    font-size: 14px;
+                    font-weight: 400;
+                    margin-left: 10px;
+                    cursor: pointer;
+                }
+
+                img {
+                    width: 28px;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 760px) {
+        .swiper-button-next {
+            right: 20px;
+            transform: rotate(90deg);
+        }
+
+        .swiper-button-prev {
+            left: 20px;
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.salebook {
+    margin-top: 70px;
+    width: 100%;
+    height: 572px;
+
+    .salebook-slide {
+        width: 100%;
+        height: 400px;
+        margin-top: 30px;
+    }
+
+    .salebookbox {
+        margin-top: 10px;
+    }
+
+    html,
+    body {
+        position: relative;
+        height: 100%;
+    }
+
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
     }
 
     .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 90%;
-      width: 100%;
-      display: flex;
-      flex-flow: column;
-      justify-content: flex-start;
-      cursor: pointer;
-      
-        
-       h5 {
+        text-align: center;
+        font-size: 18px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: flex-start;
+        cursor: pointer;
+
+
+        h5 {
             font-weight: 500;
             margin: 5px 0 5px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 160px;
         }
 
         h6 {
             color: $headcolor;
             font-size: 13px;
         }
-        p{
+
+        p {
             font-size: 12px;
-            
+
+        }
+
+        h7 {
+            color: tomato;
+            font-weight: bold;
         }
     }
 
     .swiper-slide img {
-      display: block;
-      width: 188px;
-      height: 273px;
-      object-fit: cover;
+        display: block;
+        width: 192px;
+        height: 282px;
+        object-fit: cover;
+        border: 1px solid #eaeded;
     }
-    }
+        
 }
 
 
-.bar{
-    width: 100%;
-    height: 120px;
-    background-color: #FFACCF;
-    margin-top: 70px;
-    img{width: 100%;
-        height: 100%;
-    }
-}
-.how-book {
-    width: 100%;
-    height: 516px;
-    background-color: brown;
-    .howbook-head{
-         @include headh2();
-    }
-    html,
-    body {
-      position: relative;
-      height: 100%;
-    }
-
-    body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
-
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
-
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: antiquewhite;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 590px;
-      height: 406px;
-      margin: 10px;
-      display: flex;
-      flex-flow: column;
-      justify-content: space-between;
-      .howbox{
-        width: 600px;
-        height: 166px;
-        background-color: #007aff;
-        h3{
-                color: $headcolor;
-            }
-        .howflex{
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            line-height: 30px;
-            padding: 10px;
-            h2{
-                font-size: 18px;
-                font-weight: 500;
-            }
-            
-        }
-        .logobox{
-            width: 100%;
-            img{
-                width: 28px;
-                border-radius: 50%;
-            }
-        }
-      }
-    }
-
-    @media (max-width: 760px) {
-      .swiper-button-next {
-        right: 20px;
-        transform: rotate(90deg);
-      }
-
-      .swiper-button-prev {
-        left: 20px;
-        transform: rotate(90deg);
-      }
-    }
-}
-
-.section-goodreview {
-    width: 100%;
-    height: 572px;
-    background-color: aquamarine;
-}
 
 .notice {
     width: 100%;
@@ -1262,7 +1473,7 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        
         .gong2 {
             width: 504px;
             height: 29px;
@@ -1277,12 +1488,13 @@ header {
             a {
                 color: $headcolor;
             }
-
+            
             font-size: 20px;
         }
 
         .gong4 {
             width: 600px;
+            height: 20px;
             display: flex;
             justify-content: space-between;
             text-align: center;

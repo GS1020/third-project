@@ -86,6 +86,14 @@ header .scroll {
   position: relative;
   padding-top: 40px;
 }
+.biginput input::-moz-placeholder {
+  color: #80888a;
+  opacity: 0.8;
+}
+.biginput input::placeholder {
+  color: #80888a;
+  opacity: 0.8;
+}
 .biginput .search-icon {
   position: absolute;
   top: 53px;
@@ -232,6 +240,17 @@ header .scroll {
   background-color: cornflowerblue;
   position: relative;
 }
+.slider .swiper-pagination {
+  color: #fff;
+  background-color: #333;
+  width: 90px;
+  opacity: 0.7;
+  position: absolute;
+  top: 100;
+  left: 900px;
+  padding: 10px;
+  border-radius: 20px;
+}
 .slider body {
   background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -241,15 +260,21 @@ header .scroll {
   padding: 0;
 }
 .slider .swiper-button-next {
-  color: #fff;
-  left: 66.3%;
-  background-color: #b5b4b6;
+  color: #80888a;
+  border: 1px solid #ededed;
+  left: 65.5%;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 30px;
   opacity: 0.7;
 }
 .slider .swiper-button-prev {
-  color: #fff;
-  left: 32.4%;
-  background-color: #b5b4b6;
+  color: #80888a;
+  border: 1px solid #ededed;
+  left: 31.3%;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 30px;
   opacity: 0.7;
 }
 .slider .swiper {
@@ -819,6 +844,7 @@ header .scroll {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+  border: 1px solid #eaeded;
 }
 .section-recent .recent-book h5 {
   font-weight: 500;
@@ -988,7 +1014,13 @@ header .scroll {
 .how-book {
   width: 100%;
   height: 516px;
-  background-color: brown;
+  margin-top: 70px;
+}
+.how-book .swiper-slide-active,
+.how-book .swiper-slide-duplicate-active {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  filter: none !important;
 }
 .how-book .howbook-head {
   display: flex;
@@ -1018,43 +1050,104 @@ header .scroll {
   width: 100%;
   height: 100%;
 }
-.how-book .swiper-slide {
+.how-book .swiper .swiper-button-next {
+  color: #80888a;
+  border: 1px solid #ededed;
+  left: 71.3%;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 30px;
+  box-shadow: 2px 2px 4px #333;
+}
+.how-book .swiper .swiper-button-prev {
+  color: #80888a;
+  border: 1px solid #ededed;
+  left: 28.4%;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 30px;
+  box-shadow: 2px 2px 4px #333;
+}
+.how-book .mySwiper6 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: antiquewhite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 590px;
+  background: #fffbf0;
+  width: 700px;
   height: 406px;
-  margin: 10px;
+  margin: 10px 10px 20px 10px;
   display: flex;
-  flex-flow: column;
+  flex-flow: column-reverse;
   justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ededed;
+  border-radius: 20px;
+  opacity: 0.3;
+  transform: scale(0.9);
+  filter: blur(2px);
 }
-.how-book .swiper-slide .howbox {
-  width: 600px;
+.how-book .mySwiper6 .swiper-slide .imgbox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.how-book .mySwiper6 .swiper-slide .imgbox img {
+  cursor: pointer;
+}
+.how-book .mySwiper6 .swiper-slide .howbox {
+  width: 100%;
   height: 166px;
-  background-color: #007aff;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 20px;
 }
-.how-book .swiper-slide .howbox h3 {
+.how-book .mySwiper6 .swiper-slide .howbox h3 {
   color: #80888a;
 }
-.how-book .swiper-slide .howbox .howflex {
+.how-book .mySwiper6 .swiper-slide .howbox .howflex {
   width: 100%;
   display: flex;
   justify-content: space-between;
   line-height: 30px;
   padding: 10px;
 }
-.how-book .swiper-slide .howbox .howflex h2 {
+.how-book .mySwiper6 .swiper-slide .howbox .howflex h3 {
+  cursor: pointer;
+}
+.how-book .mySwiper6 .swiper-slide .howbox .howflex h2 {
   font-size: 18px;
   font-weight: 500;
+  cursor: pointer;
 }
-.how-book .swiper-slide .howbox .logobox {
+.how-book .mySwiper6 .swiper-slide .howbox .howtext {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+.how-book .mySwiper6 .swiper-slide .howbox .howtext h3 {
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+}
+.how-book .mySwiper6 .swiper-slide .howbox .howtext p {
+  color: #80888a;
+  font-size: 14px;
+  cursor: pointer;
+}
+.how-book .mySwiper6 .swiper-slide .howbox .logobox {
   width: 100%;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  border-top: solid 1px #eee;
 }
-.how-book .swiper-slide .howbox .logobox img {
+.how-book .mySwiper6 .swiper-slide .howbox .logobox h3 {
+  font-size: 14px;
+  font-weight: 400;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.how-book .mySwiper6 .swiper-slide .howbox .logobox img {
   width: 28px;
   border-radius: 50%;
 }
@@ -1069,10 +1162,75 @@ header .scroll {
   }
 }
 
-.section-goodreview {
+.salebook {
+  margin-top: 70px;
   width: 100%;
   height: 572px;
-  background-color: aquamarine;
+}
+.salebook .salebook-slide {
+  width: 100%;
+  height: 400px;
+  margin-top: 30px;
+}
+.salebook .salebookbox {
+  margin-top: 10px;
+}
+.salebook html,
+.salebook body {
+  position: relative;
+  height: 100%;
+}
+.salebook body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.salebook .swiper {
+  width: 100%;
+  height: 100%;
+}
+.salebook .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+.salebook .swiper-slide h5 {
+  font-weight: 500;
+  margin: 5px 0 5px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 160px;
+}
+.salebook .swiper-slide h6 {
+  color: #80888a;
+  font-size: 13px;
+}
+.salebook .swiper-slide p {
+  font-size: 12px;
+}
+.salebook .swiper-slide h7 {
+  color: tomato;
+  font-weight: bold;
+}
+.salebook .swiper-slide img {
+  display: block;
+  width: 192px;
+  height: 282px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px solid #eaeded;
 }
 
 .notice {
@@ -1104,6 +1262,7 @@ header .scroll {
 }
 .notice .notice-center .gong4 {
   width: 600px;
+  height: 20px;
   display: flex;
   justify-content: space-between;
   text-align: center;
