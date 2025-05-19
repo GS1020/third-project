@@ -84,8 +84,8 @@ $(document).ready(function () {
 async function bookData() {
   const params = new URLSearchParams({
     target: 'title',
-    query: '테일러',
-    size: 4
+    query: '나혼자만 레벨업',
+    size: 1
 
   });
 
@@ -113,8 +113,13 @@ async function bookData() {
 
     for (let i = 0; i < data.documents.length; i++) {
       const book = data.documents[i];
+      const box = $('.bigbook');
+      const ten = book.contents.substring(0, 160);
+      box.append("<img src=" + book.thumbnail + ">")
+      box.append(`<h5>${book.title}</h5>`)
+      box.append(`<h6>${book.authors}</h6>`)
+      box.append(`<p>${ten}</p>`)
 
-      $('.bigbook').append("<img src=" + book.thumbnail + ">")
     }
   } catch (error) {
     console.error('오류발생:', error);
@@ -130,8 +135,8 @@ let prependNumber = 1;
 
 const swiper1 = new Swiper('.mySwiper1', {
   slidesPerView: 3,
-  
-      loop: true,
+
+  loop: true,
   centeredSlides: true,
   spaceBetween: 30,
   pagination: {
@@ -297,16 +302,25 @@ var swiper2 = new Swiper(".mySwiper2", {
 });
 
 
-
-async function bookData5() {
+async function bookData5(category='종합') {
+  const categoryBooks = {
+    '종합': ['흔한남매', '결국 국민이 합니다', '모순', '급류', '대한민국헌법', '청춘의 독서', '소년이 온다', '쇼펜하우어 인생수업', '파과', '단 한 번의 삶'],
+    '국내소설':['모순', '급류', '소년이 온다'],
+    '외국소설':['파과', '단 한 번의 삶', '테일러'],
+    '비소설':['결국 국민이 합니다', '대한민국헌법', '청춘의 독서', '쇼펜하우어 인생수업'],
+    '어린이': ['흔한남매'],
+    '만화': ['티니핑', '사카모토 데이즈', '나 혼자만 레벨업'],
+  }
   const boxes = $('.mySwiper2 .swiper-slide');
-  const booksearch = [
-    '흔한남매', '결국 국민이 합니다', '모순', '급류', '대한민국헌법',
-    '청춘의 독서', '소년이 온다', '쇼펜하우어 인생수업', '파과', '단 한 번의 삶'
-  ];
+  const booksearch = categoryBooks[category] || [];
 
-  for (let i = 0; i < booksearch.length; i++) {
-    const query = booksearch[i];
+  for (let i=0; i<boxes.length;i++){
+      const box = boxes.eq(i);
+      box.html("");
+  }
+
+  for (let i=0; i<booksearch.length;i++){
+    const query=booksearch[i];
 
     const params = new URLSearchParams({
       target: 'title',
@@ -321,27 +335,38 @@ async function bookData5() {
     });
 
     const data = await response.json();
-    const book = data.documents[0];
-    const ten = book.contents.substring(0, 150);
+    const book =data.documents[0];
 
-    if (book && boxes[i]) {
-      const box = boxes.eq(i);
+    if(book && boxes[i]){
+      const ten = book.contents.substring(0,150);
+      const box = $(boxes[i]);
 
       box.html("");
+
       box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
       box.append(`<div class="textbox">
-          <h5>${book.title}</h5>
-          <h6>${book.authors}</h6>
-          <p>${ten}</p>
-          </div>
-        `);
-
-
+        <h5>${book.title}</h5>
+        <h6>${book.authors.join(', ')}</h6>
+        <p>${ten}</p>
+      </div>`);
     }
-
   }
+
 }
 bookData5();
+
+$('.besthead-li li').click(function(){
+  $('.besthead-li li').removeClass('besthead-lii');
+  $(this).addClass('besthead-lii');
+
+  const category = $(this).text().trim()
+  bookData5(category);
+});
+  $(document).ready(function(){
+    bookData5('종합');
+  });
+
+
 
 // 화제의 책들 스와이퍼
 
@@ -385,8 +410,8 @@ async function bookData6() {
     for (let i = 0; i < 30; i++) {
       const box = $(boxx[i]);
       const books = data.documents[i];
-      $(boxx[i]).append(`<img src="${books.thumbnail}" alt="${books.title}">`);
-      $(boxx[i]).append(`<div class=hotbox>
+      box.append(`<img src="${books.thumbnail}" alt="${books.title}">`);
+      box.append(`<div class=hotbox>
         <h5>${books.title}</h5>
         <h6>${books.authors}</h6>
         `)
@@ -422,6 +447,11 @@ async function bookData6() {
 }
 
 bookData6();
+
+$('.hothead-li li').click(function () {
+  $('.hothead-li li').removeClass('hot-lii');
+  $(this).addClass('hot-lii');
+})
 
 
 async function bookData7() {
@@ -667,36 +697,36 @@ async function bookData9() {
 
   }
 }
-bookData9();  
+bookData9();
 
 // 이런책은 어떠세요 슬라이더
 
 var swiper6 = new Swiper('.mySwiper6', {
-      slidesPerView: 3,
-      centeredSlides: true,
-      spaceBetween:30,
-      loop: true,
-      direction: getDirection(),
-      navigation: {
-        nextEl: '.mySwiper6-button-next',
-        prevEl: '.mySwiper6-button-prev',
-      },
-      on: {
-        resize: function () {
-          swiper6.changeDirection(getDirection());
-        },
-      },
-    });
+  slidesPerView: 3,
+  centeredSlides: true,
+  spaceBetween: 30,
+  loop: true,
+  direction: getDirection(),
+  navigation: {
+    nextEl: '.mySwiper6-button-next',
+    prevEl: '.mySwiper6-button-prev',
+  },
+  on: {
+    resize: function () {
+      swiper6.changeDirection(getDirection());
+    },
+  },
+});
 
-    function getDirection() {
-      var windowWidth = window.innerWidth;
-      var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+function getDirection() {
+  var windowWidth = window.innerWidth;
+  var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
 
-      return direction;
-    }
+  return direction;
+}
 
 
-    // 이런책은 어떠세요 슬라이더
+// 이런책은 어떠세요 슬라이더
 async function bookData10() {
   const boxes = $('.mySwiper6 .swiper-slide');
   const queryList = ['트럼프', 'AI 시대', '노벨문학상', '둘리', '교황', '바르가스', '계절들'];
@@ -718,12 +748,12 @@ async function bookData10() {
     const data = await response.json();
 
     if (boxes[i]) {
-      
+
       const $box = $(boxes[i]);
       const $imgbox = $('<div class="imgbox" style="width:600px; height:210px"></div>');
       $box.append($imgbox);
 
-      
+
       for (let j = 0; j < data.documents.length; j++) {
         const book = data.documents[j];
         $imgbox.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
@@ -765,8 +795,8 @@ var swiper7 = new Swiper(".mySwiper7", {
 async function bookData11() {
   const boxes = $('.mySwiper7 .swiper-slide');
   const booksearch = [
-    '지능의 역사: 인류의 기원','초판본 데미안','어제와 똑같은 내가 싫어서','안나 카레니나 1','1만명 리더의 고민',
-    '어린 왕자(1943년)','365 괴테 일력','카라마조프가의 형제들','오페라의 유령(더클래식)','나의 MBTI가 궁금하단 마리몽'
+    '지능의 역사: 인류의 기원', '초판본 데미안', '어제와 똑같은 내가 싫어서', '안나 카레니나 1', '1만명 리더의 고민',
+    '어린 왕자(1943년)', '365 괴테 일력', '카라마조프가의 형제들', '오페라의 유령(더클래식)', '나의 MBTI가 궁금하단 마리몽'
   ];
 
   for (let i = 0; i < booksearch.length; i++) {
@@ -796,10 +826,13 @@ async function bookData11() {
       box.append(`<div class="salebookbox">
           <h5>${book.title}</h5>
           <h6>${book.authors}</h6>
-          <h7>${book.price+"원"}</h7>
-          </div>`
+          
+          </div>`);
 
-      );
+      box.append(`<div class='saleprice'>
+          <h7>${book.sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원"}</h7>
+          <p><del>${book.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "원"}</del></p>
+      </div>`)
       const ten = book.contents.substring(0, 160);
       box.append(`<div class="overlay"
         style="background-color:#333;width:192px;height:282px;opacity:0.9;color:#fff; position:absolute; padding:20px; display:none"></div>`);
