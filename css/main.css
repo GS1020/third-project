@@ -181,6 +181,9 @@ header .scroll {
   height: 50px;
   background-color: cornflowerblue;
   border-bottom: solid 1px #fff;
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
 }
 .header_nav img {
   width: 25px;

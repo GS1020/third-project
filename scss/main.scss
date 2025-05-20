@@ -261,7 +261,9 @@ header {
     height: 50px;
     background-color: cornflowerblue;
     border-bottom: solid 1px #fff;
-
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
     img {
         width: 25px;
         height: 25px;
@@ -340,7 +342,7 @@ header {
     height: 350px;
     background-color: cornflowerblue;
     position: relative;
-
+    
     .swiper-pagination{
         color: #fff;
         background-color: #333;
