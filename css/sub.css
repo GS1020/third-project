@@ -17,6 +17,7 @@ a {
 #wrap {
   margin: 0 auto;
   width: 100%;
+  height: auto;
 }
 
 .container {
@@ -181,6 +182,8 @@ header .scroll {
   height: 50px;
   background-color: cornflowerblue;
   border-bottom: solid 1px #fff;
+  position: sticky;
+  top: 0px;
 }
 .header_nav img {
   width: 25px;
@@ -361,7 +364,7 @@ header .scroll {
 
 .section-shorts {
   width: 100%;
-  height: 183px;
+  height: 10px;
   position: relative;
 }
 .section-shorts :nth-of-type(1) {
@@ -451,7 +454,7 @@ header .scroll {
 }
 .book-box .book-inter {
   width: 500px;
-  height: 51px;
+  height: 81px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -489,7 +492,7 @@ header .scroll {
 .book-infor .price {
   width: 500px;
   height: 238px;
-  padding: 20px;
+  padding: 15px;
   display: flex;
   flex-flow: column;
   justify-content: space-around;
@@ -566,12 +569,260 @@ header .scroll {
 .book-infor .delivery {
   width: 500px;
   height: 204px;
-  background-color: darksalmon;
+  display: flex;
+  flex-flow: column;
+  padding: 15px;
+}
+.book-infor .delivery .delivery-text {
+  display: flex;
+}
+.book-infor .delivery .delivery-text .delivery-text2 {
+  width: 120px;
+  height: 117px;
+  display: flex;
+  flex-flow: column;
+}
+.book-infor .delivery .delivery-text .delivery-text2 img {
+  width: 25px;
+  cursor: pointer;
+}
+.book-infor .delivery .delivery-text .delivery-text2 .delivery-minitext {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 2px;
+}
+.book-infor .delivery .delivery-text .delivery-text2 .delivery-minitext p {
+  color: #80888a;
+  font-size: 13px;
+}
+.book-infor .delivery .delivery-text .delivery-text2 .delivery-minitext img {
+  margin-left: 5px;
+}
+.book-infor .delivery .delivery-text .delivery-text3 {
+  width: 400px;
+  height: 117px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+}
+.book-infor .delivery .delivery-text .delivery-text3 p {
+  color: #80888a;
+  font-size: 13px;
+}
+.book-infor .delivery .delivery-text .delivery-text3 .delivery-text3-minitext {
+  border-top: #ededed 1px solid;
+  padding-top: 10px;
+}
+.book-infor .delivery .delivery-text .delivery-text3 .delivery-text3-minitext .delivery-span {
+  border: #2bc48c solid 1px;
+  color: #2bc48c;
+  padding: 0px 8px;
+  font-size: 12px;
+  margin-right: 5px;
+  width: 62px;
+}
+.book-infor .delivery .delivery-text .delivery-text3 .delivery-text3-minitext .delivery-span2 {
+  color: #4aaf70;
+}
+.book-infor .delivery .delivery-text .delivery-text3 .delivery-text3-minitext2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.book-infor .delivery .delivery-text .delivery-text3 .delivery-text3-minitext2 a {
+  color: #4aaf70;
+  font-size: 11px;
+}
+.book-infor .delivery .delivery-text .delivery-text3 .delivery-text3-minitext2 .delivery-span3 {
+  border: #fb3030 solid 1px;
+  color: #fb3030;
+  padding: 0px 8px;
+  font-size: 12px;
+  margin-right: 5px;
+  width: 62px;
 }
 .book-infor .pay {
   width: 500px;
   height: 293px;
-  background-color: cornflowerblue;
+  padding: 15px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+}
+.book-infor .pay p {
+  color: #a5a5a5;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.book-infor .pay .pay-button {
+  height: 60px;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-top: solid 1px #333;
+}
+.book-infor .pay .pay-button .button-price {
+  color: #EE293b;
+  font-size: 20px;
+}
+.book-infor .pay .pay-button .button-flex {
+  display: flex;
+}
+.book-infor .pay .pay-button button {
+  width: 40px;
+  height: 30px;
+  color: #80888a;
+  background-color: #fff;
+  border: #ededed 1px solid;
+  cursor: pointer;
+  font-size: 24px;
+}
+.book-infor .pay .pay-button input {
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  border: #ededed 1px solid;
+}
+.book-infor .pay .pay-button2 {
+  display: flex;
+  justify-content: space-between;
+}
+.book-infor .pay .pay-button2 .bakes {
+  font-size: 18px;
+  color: #646465;
+  background-color: #ffffff;
+  border: 1px #dddddd solid;
+  border-radius: 5px;
+}
+.book-infor .pay .pay-button2 .buy {
+  font-size: 18px;
+  color: #fff;
+  background-color: #4aaf70;
+  border: none;
+  font-weight: 550;
+  border-radius: 5px;
+}
+.book-infor .pay .pay-button2 .nowdream {
+  font-size: 18px;
+  color: #b21d27;
+  background-color: #ffffff;
+  border: 1px solid #b21d27;
+  font-weight: 700;
+  border-radius: 5px;
+}
+.book-infor .pay .pay-button2 button {
+  width: 168px;
+  height: 47px;
+  margin: 5px;
+  cursor: pointer;
+}
+.book-infor .pay .delivery-cancel {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  border-top: 1px solid #ededed;
+}
+.book-infor .pay .delivery-cancel a {
+  color: #80888a;
+}
+
+.zerobar {
+  width: 100%;
+  height: 50px;
+}
+
+.book-tab {
+  background-color: #ededed;
+  position: sticky;
+  top: 50px;
+}
+
+.book-tab-box {
+  height: 48px;
+}
+.book-tab-box .active {
+  background-color: #4aaf70;
+}
+.book-tab-box .active a {
+  color: #fff;
+  font-weight: bold;
+}
+.book-tab-box ul {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.book-tab-box ul li {
+  width: 200px;
+  line-height: 48px;
+}
+.book-tab-box ul li a {
+  color: #80888a;
+}
+
+.long-infor {
+  width: 100%;
+  height: 7000px;
+}
+.long-infor .container {
+  display: flex;
+}
+.long-infor .container .infor {
+  width: 720px;
+  height: 7000px;
+  background-color: blanchedalmond;
+}
+.long-infor .container .payment {
+  width: 300px;
+  height: 7000px;
+}
+.long-infor .container .payment .payment-main {
+  width: 280px;
+  height: 555px;
+  background-color: #fff;
+  border: 1px solid #b5b4b6;
+  padding: 20px;
+}
+.long-infor .container .payment .payment-main .payment-thumbnail {
+  width: 100%;
+  height: 112px;
+  display: flex;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #333;
+}
+.long-infor .container .payment .payment-main .payment-thumbnail h4 {
+  margin-left: 20px;
+  font-weight: 550;
+}
+.long-infor .container .payment .payment-main .payment-button {
+  display: flex;
+  justify-content: space-between;
+}
+.long-infor .container .payment .payment-main .payment-button .button-flex1 {
+  display: flex;
+}
+.long-infor .container .payment .payment-main .payment-button button {
+  width: 30px;
+  height: 30px;
+  color: #80888a;
+  background-color: #fff;
+  border: #ededed 1px solid;
+  cursor: pointer;
+  font-size: 24px;
+}
+.long-infor .container .payment .payment-main .payment-button input {
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  border: #ededed 1px solid;
+}
+.long-infor .container .payment .payment-main .payment-button h3 {
+  color: #EE293b;
+  font-size: 18px;
 }
 
 .notice {

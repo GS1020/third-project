@@ -234,6 +234,11 @@ async function bookData4() {
 
       box.css('position', 'relative');
       const ten = book.contents.substring(0, 190);
+        if (book.title.includes('바움가트너')) {
+    box.on('click', function () {
+      window.location.href = 'sub.html';
+    });
+  }
 
       box.append(`<div class="overlay"
         style="background-color:#333;width:100%;height:100%;opacity:0.9;color:#fff; position:absolute; padding:20px;top:0;left:0;overflow:auto; display:none"></div>`);
@@ -251,6 +256,7 @@ async function bookData4() {
   <div class="view" style="width:40px; height:40px; color:#fff; border:2px solid #fff; line-height:35px; text-align:center;">
     <p style="margin:0;">Cart</p>
   </div>
+  
 `);
       box.mouseenter(function () {
         $(this).children('.overlay').stop().fadeIn();

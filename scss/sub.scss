@@ -261,6 +261,8 @@ header {
     height: 50px;
     background-color: cornflowerblue;
     border-bottom: solid 1px #fff;
+    position: sticky;
+    top: 0px;
 
     img {
         width: 25px;
@@ -427,12 +429,13 @@ header {
         justify-content: space-around;
         align-items: center;
         padding: 10px;
+
         img {
             width: 60%;
             height: 60%;
         }
 
-        
+
     }
 
     .survice2 {
@@ -459,7 +462,7 @@ header {
 
 .section-shorts {
     width: 100%;
-    height: 183px;
+    height: 10px;
     position: relative;
 
     :nth-of-type(1) {
@@ -476,7 +479,7 @@ header {
         width: 130px;
         height: 184px;
         background-color: #fff;
-        
+
         img {
             width: 72px;
             height: 104px;
@@ -512,29 +515,33 @@ header {
 }
 
 
-.sub-header-bar{
+.sub-header-bar {
     display: flex;
     align-items: center;
     height: 28px;
     padding: 10px;
     margin-top: 10px;
-    p{
+
+    p {
         display: inline;
-        color:#b5b4b6 ;
+        color: #b5b4b6;
         margin: 5px;
     }
-    img{
+
+    img {
         width: 15px;
         height: 15px;
     }
-    .book{
+
+    .book {
         width: 100px;
         height: 28px;
         font-size: 12px;
         overflow: auto;
         border: 1px solid #ededed;
     }
-    button{
+
+    button {
         width: 100px;
         height: 28px;
         border: 1px solid #ededed;
@@ -543,53 +550,61 @@ header {
     }
 }
 
-.bookdetail-flex{
+.bookdetail-flex {
     display: flex;
 }
-.book-box{
+
+.book-box {
     height: 932px;
-    
 
 
-    .book-thumbnail{
+
+    .book-thumbnail {
         width: 500px;
         height: calc(100% - 180px);
         background-color: #f8f8f880;
         padding: 50px;
-        img{
+
+        img {
             width: 400px;
             height: 600px;
         }
     }
-    .book-inter{
-        p:not(:last-child)::after{
+
+    .book-inter {
+        p:not(:last-child)::after {
             content: '|';
             margin: 10px;
             color: #ededed
         }
+
         width: 500px;
-        height: 51px;
+        height: 81px;
         display: flex;
         justify-content: center;
         align-items: center;
         color: $headcolor;
-        img{
+
+        img {
             width: 15px;
-            
+
         }
     }
-    .book-tag{
+
+    .book-tag {
         width: 500px;
         height: 129px;
         display: flex;
         flex-flow: column;
         justify-content: center;
         border-top: solid 2px #ededed;
-        h5{
-            padding-bottom:  10px;
+
+        h5 {
+            padding-bottom: 10px;
             font-weight: 500;
         }
-        p{
+
+        p {
             display: inline;
             border: 1px #ededed solid;
             padding: 5px;
@@ -601,101 +616,426 @@ header {
 }
 
 .book-infor {
-    .price{
+    .price {
         width: 500px;
         height: 238px;
-        padding: 20px;
+        padding: 15px;
         display: flex;
         flex-flow: column;
         justify-content: space-around;
-        
-        .book-title{
-        h2{
-            font-size: 28px;
-            color: #3d3c3f;
-        }
-        }
-        .today-best{
-        p{
-            display: inline;
-            border: #4aaf70 solid 1px;
-            font-size: 12px;
-            a{color: #4aaf70;
-                padding: 10px;
+
+        .book-title {
+            h2 {
+                font-size: 28px;
+                color: #3d3c3f;
             }
         }
-        .mini-text{
-            border: #b5b4b6 solid 1px;
-            a{
-                color: #b5b4b6;
-            }
-        }
-        }
-        .book-ul{
-            
-            display: flex;
-            li{
-                color: $headcolor;
-                font-size: 13px;
-            }
-                li:not(:last-child)::after{
-                    content: '|';
-                    color: #dddddd;
-                    margin: 5px;
+
+        .today-best {
+            p {
+                display: inline;
+                border: #4aaf70 solid 1px;
+                font-size: 12px;
+
+                a {
+                    color: #4aaf70;
+                    padding: 10px;
                 }
-            
+            }
+
+            .mini-text {
+                border: #b5b4b6 solid 1px;
+
+                a {
+                    color: #b5b4b6;
+                }
+            }
         }
-        .date-time{
-            color: $headcolor;
-                font-size: 13px;
-        }
-        .rivew-flex{
+
+        .book-ul {
+
             display: flex;
-            h5{
+
+            li {
+                color: $headcolor;
+                font-size: 13px;
+            }
+
+            li:not(:last-child)::after {
+                content: '|';
+                color: #dddddd;
+                margin: 5px;
+            }
+
+        }
+
+        .date-time {
+            color: $headcolor;
+            font-size: 13px;
+        }
+
+        .rivew-flex {
+            display: flex;
+
+            h5 {
                 color: $headcolor;
             }
-        .rivew{
-            color: $headcolor;
-            border-bottom: 1px solid #80888a;
-            font-size: 12px;
-            margin-left: 10px;
+
+            .rivew {
+                color: $headcolor;
+                border-bottom: 1px solid #80888a;
+                font-size: 12px;
+                margin-left: 10px;
+            }
         }
-        }
-        .sale-price{
+
+        .sale-price {
             display: flex;
             align-items: center;
             border-bottom: 1px #333 solid;
             padding-bottom: 10px;
-            h2{color: #EE293b;
-            font-size: 32px;}
-            del{color: $headcolor;
-            font-size: 14px;
-            margin: 10px;}
-            p{
+
+            h2 {
                 color: #EE293b;
-                
+                font-size: 32px;
             }
-            .sale{
+
+            del {
+                color: $headcolor;
+                font-size: 14px;
+                margin: 10px;
+            }
+
+            p {
+                color: #EE293b;
+
+            }
+
+            .sale {
                 color: #EE293b;
                 font-size: 14px;
             }
         }
     }
-    
 
-    .delivery{
+
+    .delivery {
         width: 500px;
         height: 204px;
-        background-color:darksalmon;
+        display: flex;
+        flex-flow: column;
+
+        padding: 15px;
+
+        .delivery-text {
+            display: flex;
+
+            .delivery-text2 {
+                width: 120px;
+                height: 117px;
+
+                display: flex;
+                flex-flow: column;
+
+                img {
+                    width: 25px;
+                    cursor: pointer;
+                }
+
+                .delivery-minitext {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding-top: 2px;
+
+                    p {
+                        color: $headcolor;
+                        font-size: 13px;
+                    }
+
+                    img {
+                        margin-left: 5px;
+                    }
+                }
+            }
+
+            .delivery-text3 {
+                width: 400px;
+                height: 117px;
+                display: flex;
+                flex-flow: column;
+                justify-content: space-evenly;
+
+                p {
+                    color: $headcolor;
+                    font-size: 13px;
+
+                }
+
+                .delivery-text3-minitext {
+                    border-top: #ededed 1px solid;
+                    padding-top: 10px;
+
+                    .delivery-span {
+                        border: #2bc48c solid 1px;
+                        color: #2bc48c;
+                        padding: 0px 8px;
+                        font-size: 12px;
+                        margin-right: 5px;
+                        width: 62px;
+                    }
+
+                    .delivery-span2 {
+                        color: #4aaf70;
+                    }
+                }
+
+                .delivery-text3-minitext2 {
+                    a {
+                        color: #4aaf70;
+                        font-size: 11px;
+                    }
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .delivery-span3 {
+                        border: #fb3030 solid 1px;
+                        color: #fb3030;
+                        padding: 0px 8px;
+                        font-size: 12px;
+                        margin-right: 5px;
+                        width: 62px;
+                    }
+                }
+            }
+        }
     }
 
-    .pay{
+
+
+    .pay {
         width: 500px;
         height: 293px;
-        background-color: cornflowerblue;
+        padding: 15px;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-evenly;
+
+        p {
+            color: #a5a5a5;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .pay-button {
+
+            height: 60px;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-top: solid 1px #333;
+
+            .button-price {
+                color: #EE293b;
+                font-size: 20px;
+            }
+
+            .button-flex {
+                display: flex;
+
+            }
+
+            button {
+                width: 40px;
+                height: 30px;
+                color: $headcolor;
+                background-color: #fff;
+                border: #ededed 1px solid;
+                cursor: pointer;
+                font-size: 24px;
+            }
+
+            input {
+                width: 40px;
+                height: 30px;
+                text-align: center;
+                border: #ededed 1px solid;
+
+            }
+        }
+
+        .pay-button2 {
+            display: flex;
+            justify-content: space-between;
+
+            .bakes {
+                font-size: 18px;
+                color: #646465;
+                background-color: #ffffff;
+                border: 1px #dddddd solid;
+                border-radius: 5px;
+            }
+
+            .buy {
+                font-size: 18px;
+                color: #fff;
+                background-color: #4aaf70;
+                border: none;
+                font-weight: 550;
+                border-radius: 5px;
+            }
+
+            .nowdream {
+                font-size: 18px;
+                color: #b21d27;
+                background-color: #ffffff;
+                border: 1px solid #b21d27;
+                font-weight: 700;
+                border-radius: 5px;
+            }
+
+            button {
+                width: 168px;
+                height: 47px;
+                margin: 5px;
+                cursor: pointer;
+            }
+        }
+
+        .delivery-cancel {
+            display: flex;
+            flex-flow: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+            border-top: 1px solid #ededed;
+
+            a {
+                color: $headcolor;
+            }
+        }
+    }
+
+
+
+
+}
+
+.zerobar {
+    width: 100%;
+    height: 50px;
+}
+
+.book-tab {
+    background-color: #ededed;
+    position: sticky;
+    top: 50px;
+}
+
+.book-tab-box {
+    height: 48px;
+
+    .active {
+        background-color: #4aaf70;
+
+        a {
+            color: #fff;
+            font-weight: bold;
+        }
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+
+        text-align: center;
+
+        li {
+            width: 200px;
+            line-height: 48px;
+
+            a {
+                color: $headcolor;
+            }
+        }
     }
 }
 
+.long-infor {
+    width: 100%;
+    height: 7000px;
+
+    .container {
+        display: flex;
+
+        .infor {
+            width: 720px;
+            height: 7000px;
+            background-color: blanchedalmond;
+        }
+
+        .payment {
+            width: 300px;
+            height: 7000px;
+
+
+            .payment-main {
+                width: 280px;
+                height: 555px;
+                background-color: #fff;
+                border: 1px solid #b5b4b6;
+                padding: 20px;
+
+                .payment-thumbnail {
+                    width: 100%;
+                    height: 112px;
+
+                    display: flex;
+                    padding-bottom: 20px;
+                    border-bottom: 1px solid #333;
+
+                    h4 {
+                        margin-left: 20px;
+                        font-weight: 550;
+                    }
+                }
+                
+                .payment-button {
+                    display: flex;                 
+                    justify-content: space-between;
+                .button-flex1{
+                    display: flex;
+                }
+                    button {
+                        width: 30px;
+                        height: 30px;
+                        color: $headcolor;
+                        background-color: #fff;
+                        border: #ededed 1px solid;
+                        cursor: pointer;
+                        font-size: 24px;
+                    }
+
+                    input {
+                        width: 40px;
+                        height: 30px;
+                        text-align: center;
+                        border: #ededed 1px solid;
+
+                    }
+                    h3{
+                        color: #EE293b;
+                        font-size: 18px;
+                    }
+                }
+
+            }
+        }
+    }
+}
 
 
 
@@ -722,7 +1062,7 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
+
         .gong2 {
             width: 504px;
             height: 29px;
@@ -737,7 +1077,7 @@ header {
             a {
                 color: $headcolor;
             }
-            
+
             font-size: 20px;
         }
 
