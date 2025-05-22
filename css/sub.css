@@ -184,6 +184,7 @@ header .scroll {
   border-bottom: solid 1px #fff;
   position: sticky;
   top: 0px;
+  z-index: 100;
 }
 .header_nav img {
   width: 25px;
@@ -739,6 +740,7 @@ header .scroll {
   background-color: #ededed;
   position: sticky;
   top: 50px;
+  z-index: 110;
 }
 
 .book-tab-box {
@@ -773,12 +775,177 @@ header .scroll {
 }
 .long-infor .container .infor {
   width: 720px;
-  height: 7000px;
-  background-color: blanchedalmond;
+}
+.long-infor .container .infor h2 {
+  padding: 50px 0px;
+  color: #333333;
+}
+.long-infor .container .infor .book-table {
+  border-collapse: collapse;
+}
+.long-infor .container .infor .book-table th {
+  background-color: rgba(238, 238, 238, 0.5019607843);
+  color: #80888a;
+  padding: 6px 20px;
+  font-weight: 500;
+  border: 1px solid #ededed;
+}
+.long-infor .container .infor .book-table td {
+  color: #80888a;
+  padding: 6px 20px;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  font-weight: 400;
+  width: 75%;
+}
+.long-infor .container .infor .event {
+  width: 100%;
+  height: 350px;
+}
+.long-infor .container .infor .event .swiper-button-next {
+  color: #80888a;
+  border: 1px solid #ededed;
+  top: 105px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 30px;
+  opacity: 0.7;
+}
+.long-infor .container .infor .event .swiper-button-prev {
+  color: #80888a;
+  border: 1px solid #ededed;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 30px;
+  opacity: 0.7;
+  top: 105px;
+  left: 0px;
+}
+.long-infor .container .infor .event .slide-text .slide-text1 {
+  color: #fff;
+  background-color: #0067cb;
+  width: 55px;
+  font-size: 12px;
+  text-align: center;
+  padding: 5px 10px;
+}
+.long-infor .container .infor .event .slide-text .slide-text2 {
+  font-size: 15px;
+  color: #3d3c3f;
+}
+.long-infor .container .infor .event .slide-text .slide-text3 {
+  font-size: 13px;
+  color: #4aaf70;
+}
+.long-infor .container .infor .event html,
+.long-infor .container .infor .event body {
+  position: relative;
+  height: 100%;
+}
+.long-infor .container .infor .event body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.long-infor .container .infor .event .swiper {
+  width: 100%;
+  height: 100%;
+}
+.long-infor .container .infor .event .swiper-slide {
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  height: 300px;
+}
+.long-infor .container .infor .event .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.long-infor .container .infor .event .swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+.long-infor .container .book-txt {
+  margin-top: 150px;
+  border-top: 1px solid #ededed;
+  margin-bottom: 100px;
+}
+.long-infor .container .book-txt h3 {
+  color: #3d3c3f;
+  font-size: 14px;
+}
+.long-infor .container .book-txt p {
+  color: #80888a;
+  font-size: 14px;
+}
+.long-infor .container .book-txt .scroll-box {
+  display: none;
+}
+.long-infor .container .book-txt .text-button {
+  color: #646465;
+  border: 1px solid #ededed;
+  background-color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  float: right;
+  cursor: pointer;
+}
+.long-infor .container .book-txt .text-button1 {
+  color: #646465;
+  border: 1px solid #ededed;
+  background-color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  float: right;
+  cursor: pointer;
+  display: none;
+}
+.long-infor .container .book-txt2 .scroll-box1 {
+  display: none;
+  margin-bottom: 30px;
+}
+.long-infor .container .book-txt2 p {
+  color: #80888a;
+  font-size: 14px;
+}
+.long-infor .container .book-txt2 .text-button2 {
+  color: #646465;
+  border: 1px solid #ededed;
+  background-color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  float: right;
+  cursor: pointer;
+}
+.long-infor .container .book-txt2 .text-button3 {
+  color: #646465;
+  border: 1px solid #ededed;
+  background-color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  float: right;
+  cursor: pointer;
+  display: none;
+}
+.long-infor .container .book-category {
+  margin-top: 40px;
+  border-top: 1px solid #ededed;
+}
+.long-infor .container .book-category .book-category-text p {
+  color: #80888a;
+  font-size: 14px;
 }
 .long-infor .container .payment {
   width: 300px;
-  height: 7000px;
+  padding: 20px;
 }
 .long-infor .container .payment .payment-main {
   width: 280px;
@@ -786,6 +953,8 @@ header .scroll {
   background-color: #fff;
   border: 1px solid #b5b4b6;
   padding: 20px;
+  position: sticky;
+  top: 100px;
 }
 .long-infor .container .payment .payment-main .payment-thumbnail {
   width: 100%;
@@ -798,9 +967,50 @@ header .scroll {
   margin-left: 20px;
   font-weight: 550;
 }
+.long-infor .container .payment .payment-main .payment-buybutton {
+  margin-top: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ededed;
+}
+.long-infor .container .payment .payment-main .payment-buybutton .bakes {
+  font-size: 15px;
+  color: #646465;
+  background-color: #ffffff;
+  border: 1px #dddddd solid;
+  border-radius: 5px;
+}
+.long-infor .container .payment .payment-main .payment-buybutton .buy {
+  font-size: 15px;
+  color: #fff;
+  background-color: #4aaf70;
+  border: none;
+  font-weight: 550;
+  border-radius: 5px;
+}
+.long-infor .container .payment .payment-main .payment-buybutton .nowdream {
+  font-size: 15px;
+  color: #b21d27;
+  background-color: #ffffff;
+  border: 1px solid #b21d27;
+  font-weight: 700;
+  border-radius: 5px;
+}
+.long-infor .container .payment .payment-main .payment-buybutton button {
+  width: 238px;
+  height: 40px;
+  margin: 5px;
+  cursor: pointer;
+}
+.long-infor .container .payment .payment-main .payment-p {
+  font-size: 12px;
+  color: #80888a;
+  margin-top: 10px;
+}
 .long-infor .container .payment .payment-main .payment-button {
   display: flex;
   justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #ededed;
 }
 .long-infor .container .payment .payment-main .payment-button .button-flex1 {
   display: flex;
@@ -823,6 +1033,67 @@ header .scroll {
 .long-infor .container .payment .payment-main .payment-button h3 {
   color: #EE293b;
   font-size: 18px;
+}
+.long-infor .container .payment .naver-pay {
+  border-top: 2px solid #333;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 20px;
+  height: 100px;
+}
+.long-infor .container .payment .naver-pay .naver-box {
+  width: 79px;
+  height: 30px;
+  font-size: 9px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+.long-infor .container .payment .naver-pay .naver-box span {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 900;
+  font-size: 13px;
+  color: #03C75A;
+}
+.long-infor .container .payment .naver-pay img {
+  width: 79px;
+  height: 36px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border: 1px #03C75A solid;
+}
+.long-infor .container .payment .naver-box2 {
+  width: 117px;
+  height: 37px;
+  border: 1px solid #03C75A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.long-infor .container .payment .naver-box2 span {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 900;
+  font-size: 10px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  padding: 0px 4px;
+  color: #fff;
+  background-color: #000;
+}
+.long-infor .container .payment .naver-box2 p {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+}
+.long-infor .container .payment button {
+  width: 37px;
+  height: 37px;
+  color: #3d3c3f;
+  background-color: #fff;
+  border: #a5a5a5 1px solid;
+  cursor: pointer;
 }
 
 .notice {

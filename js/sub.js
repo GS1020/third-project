@@ -176,3 +176,98 @@ async function subbook3() {
 subbook3();
 
 
+async function subbook4() {
+  const params = new URLSearchParams({
+    target:'title',
+    query:'바움 가트너',
+  })
+  try{
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+    const data = await response.json();
+    const book = data.documents[0];
+
+    $('.isbn').append(`ISBN-13 : ${book.isbn}`);
+    $('.publisher').append(`${book.publisher}`)
+    $('.translators').append(`${book.translators}`)
+    $('.status').append(`${book.status}`);
+  }catch(error){
+    console.log('에러발생','error');
+  }
+  
+}
+subbook4();
+
+
+
+ document.addEventListener("DOMContentLoaded", () => {
+  const swiper = new Swiper(".mySwiper", {
+    loop: true,
+    slidesPerView: 2,
+    spaceBetween: 10,
+    slidesPerGroup:2,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded',async function () {
+  try{
+    const response = await fetch("./sub.txt/sub.txt");
+    if (!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.text();
+    document.getElementsByClassName('book-txt')[0].innerHTML =data;
+    $(document).ready(function() {
+  $('.text-button').click(function(){
+    $('.scroll-box').stop().slideDown();
+    $('.text-button1').stop().show();
+    $('.text-button').stop().hide();
+  });
+   $('.text-button1').click(function(){
+    $('.scroll-box').stop().slideUp();
+    $('.text-button').stop().show();
+    $('.text-button1').stop().hide();
+     });
+});
+  }catch (error){
+    console.error("There was a problem with the fetch operation:, error");
+  }
+});
+
+document.addEventListener('DOMContentLoaded',async function () {
+  try{
+    const response = await fetch("./sub.txt/sub1.txt");
+    if (!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.text();
+    document.getElementsByClassName('book-txt2')[0].innerHTML =data;
+    $(document).ready(function() {
+  $('.text-button2').click(function(){
+    $('.scroll-box1').stop().slideDown();
+    $('.text-button3').stop().show();
+    $('.text-button2').stop().hide();
+  });
+   $('.text-button3').click(function(){
+    $('.scroll-box1').stop().slideUp();
+    $('.text-button2').stop().show();
+    $('.text-button3').stop().hide();
+     });
+});
+  }catch (error){
+    console.error("There was a problem with the fetch operation:, error");
+  }
+});

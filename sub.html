@@ -7,6 +7,10 @@
     <title>영풍문고 - 바움가트너</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
     <link rel="stylesheet" href="./css/sub.css">
 </head>
 
@@ -379,9 +383,9 @@
                     <div class="pay">
                         <div class="pay-button">
                             <div class="button-flex">
-                            <button class="minus">−</button>
-                            <input type="text" value="1" maxlength="3" class="count" readonly>
-                            <button class="plus">+</button>
+                                <button class="minus">−</button>
+                                <input type="text" value="1" maxlength="3" class="count" readonly>
+                                <button class="plus">+</button>
                             </div>
                             <div class="button-price-box">
                                 <h2 class="button-price"></h2>
@@ -395,7 +399,7 @@
                         </div>
                         <div class="delivery-cancel">
                             <p><span style="color: #4aaf70;">[네이버 페이]</span> <br><a href="#">주문/취소/배송 안내 ></a></p>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -415,11 +419,102 @@
             </div>
         </div>
     </div>
-    
+
 
     <div class="long-infor">
         <div class="container">
-            <div class="infor"></div>
+            <div class="infor">
+
+                <h2>상품 규격 정보</h2>
+                <table class="book-table">
+                    <tr>
+                        <th>IBSN</th>
+                        <td class="isbn"></td>
+                    </tr>
+                    <tr>
+                        <th>도서 출판사</th>
+                        <td class="publisher"></td>
+                    </tr>
+                    <tr>
+                        <th>도서 번역자 리스트</th>
+                        <td class="translators"></td>
+                    </tr>
+                    <tr>
+                        <th>도서 판매 상태 정보</th>
+                        <td class="status"></td>
+                    </tr>
+                </table>
+
+
+                <div class="event">
+                    <h2>관련 이벤트</h2>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="img/슬라2.png" alt="slide2"> 
+                            <div class="slide-text">
+                                <p class="slide-text1">사은품</p>
+                                <p class="slide-text2">5월 활짝 페스타 이벤트</p>
+                                <p class="slide-text3">2025.04.30~2025.05.31</p>
+                            </div>
+                            </div>
+                            <div class="swiper-slide"><img src="img/서브슬라1.jpg" alt="subslide1">
+                            <div class="slide-text">
+                                <p class="slide-text1">사은품</p>
+                                <p class="slide-text2">한강 신작 『빛과 실』문지 에크리+사은품</p>
+                                <p class="slide-text3">2025.04.30~2025.05.31</p>
+                            </div>
+                            </div>
+                            <div class="swiper-slide"><img src="img/슬라6.png" alt="slide6">
+                            <div class="slide-text">
+                                <p class="slide-text1">사은품</p>
+                                <p class="slide-text2">영풍문고 5월 리뷰 이벤트!!</p>
+                                <p class="slide-text3">2025.04.30~2025.05.31</p>
+                            </div>
+                            </div>
+                            <div class="swiper-slide"><img src="img/슬라3.png" alt="slide3">
+                            <div class="slide-text">
+                                <p class="slide-text1">사은품</p>
+                                <p class="slide-text2">매일 100% 당첨 행운룰렛!!</p>
+                                <p class="slide-text3">2025.04.30~2025.12.31</p>
+                            </div>
+                            </div>
+                            
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="sub-header-bar"></div>
+                <div class="book-txt">
+                    
+                </div>
+                <div class="book-txt2">
+                    
+                </div>
+                <div class="book-category">
+                    <h2>이 책이 속한 분야</h2>
+                    <div class="book-category-text">
+                        <p>소셜/에세이/시 &gt; 외국소설</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -429,17 +524,33 @@
             <div class="payment">
                 <div class="payment-main">
                     <div class="payment-thumbnail"></div>
-                    
+
                     <div class="payment-button">
                         <div class="button-flex1">
-                        <button class="minus1">−</button>
-                        <input type="text" value="1" maxlength="3" class="count1">
-                        <button class="plus1">+</button>
+                            <button class="minus1">−</button>
+                            <input type="text" value="1" maxlength="3" class="count1">
+                            <button class="plus1">+</button>
                         </div>
-                        
+
                         <h3 class="button-price1"></h3>
-                        
-                    
+                    </div>
+                    <div class="payment-p">
+                        <p>실결제 금액은 적립금, 쿠폰 등에 따라 달라질 수 있습니다.</p>
+                    </div>
+                    <div class="payment-buybutton">
+                        <button class="bakes">장바구니</button>
+                        <button class="buy">바로구매</button>
+                        <button class="nowdream">↷ 나우드림</button>
+                    </div>
+                    <div class="naver-pay">
+                        <div class="naver-box">
+                            <span>NAVER</span>
+                            <p>네이버ID로 간편구매네이버페이</p>
+                        </div>
+                        <div class="naver-box2">
+                            <p><span>N</span> pay 구매</p>
+                        </div>
+                        <button>찜</button>
                     </div>
                 </div>
             </div>
