@@ -235,11 +235,15 @@ document.addEventListener('DOMContentLoaded',async function () {
     $('.scroll-box').stop().slideDown();
     $('.text-button1').stop().show();
     $('.text-button').stop().hide();
+    $('.gradient').css({'webkit-mask-image': 'none',
+  'mask-image': 'none'});
   });
    $('.text-button1').click(function(){
     $('.scroll-box').stop().slideUp();
     $('.text-button').stop().show();
     $('.text-button1').stop().hide();
+     $('.gradient').css({ 'webkit-mask-image': 'linear-gradient(to bottom, black 60%, transparent 100%)',
+  'mask-image': 'linear-gradient(to bottom, black 60%, transparent 100%)'});
      });
 });
   }catch (error){
@@ -260,14 +264,133 @@ document.addEventListener('DOMContentLoaded',async function () {
     $('.scroll-box1').stop().slideDown();
     $('.text-button3').stop().show();
     $('.text-button2').stop().hide();
+       $('.gradient2').css({'webkit-mask-image': 'none',
+  'mask-image': 'none'});
   });
    $('.text-button3').click(function(){
     $('.scroll-box1').stop().slideUp();
     $('.text-button2').stop().show();
     $('.text-button3').stop().hide();
+     $('.gradient2').css({ 'webkit-mask-image': 'linear-gradient(to bottom, black 60%, transparent 100%)',
+  'mask-image': 'linear-gradient(to bottom, black 60%, transparent 100%)'});
      });
 });
   }catch (error){
     console.error("There was a problem with the fetch operation:, error");
   }
 });
+
+document.addEventListener('DOMContentLoaded',async function () {
+  try{
+    const response = await fetch("./sub.txt/sub2.txt");
+    if (!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.text();
+    document.getElementsByClassName('book-txt3')[0].innerHTML =data;
+    $(document).ready(function() {
+  $('.text-button4').click(function(){
+    $('.scroll-box2').stop().slideDown();
+    $('.text-button5').stop().show();
+    $('.text-button4').stop().hide();
+    $('.gradient3').css({'webkit-mask-image': 'none',
+  'mask-image': 'none'});
+   
+  });
+   $('.text-button5').click(function(){
+    $('.scroll-box2').stop().slideUp();
+    $('.text-button4').stop().show();
+    $('.text-button5').stop().hide();
+    $('.gradient3').css({ 'webkit-mask-image': 'linear-gradient(to bottom, black 60%, transparent 100%)',
+  'mask-image': 'linear-gradient(to bottom, black 60%, transparent 100%)'});
+     });
+});
+  }catch (error){
+    console.error("There was a problem with the fetch operation:, error");
+  }
+});
+
+document.addEventListener('DOMContentLoaded',async function () {
+  try{
+    const response = await fetch("./sub.txt/sub3.txt");
+    if (!response.ok){
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.text();
+    document.getElementsByClassName('book-txt4')[0].innerHTML =data;
+    $(document).ready(function() {
+  $('.text-button6').click(function(){
+    $('.scroll-box3').stop().slideDown();
+    $('.text-button7').stop().show();
+    $('.text-button6').stop().hide();
+    $('.gradient4').css({'webkit-mask-image': 'none',
+  'mask-image': 'none'});
+   
+  });
+   $('.text-button7').click(function(){
+    $('.scroll-box3').stop().slideUp();
+    $('.text-button6').stop().show();
+    $('.text-button7').stop().hide();
+    $('.gradient4').css({ 'webkit-mask-image': 'linear-gradient(to bottom, black 60%, transparent 100%)',
+  'mask-image': 'linear-gradient(to bottom, black 60%, transparent 100%)'});
+     });
+});
+  }catch (error){
+    console.error("There was a problem with the fetch operation:, error");
+  }
+});
+
+
+
+
+new Swiper('.mySwiper1', {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  
+  slidesPerGroup: 4,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev'
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true
+  }
+});
+
+// async function subbook5() {
+
+//   const boxes = $('.mySwiper1 .swiper-slide')
+//   const booksearch =['닥터프렌즈의 구사일생','서랍에 저녁을 넣어 두었다','지구에서 한아뿐','너무나 많은 여름이','고리오 영감','체호프단편선','북회귀선/남회귀선','세뇌 살인'];
+
+//   for (let i=0; i<booksearch.length; i++){
+//     const query=booksearch[i];
+
+//     const params = new URLSearchParams({
+//       target:'title',
+//       query:query
+//     });
+
+//     const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+//       method: 'GET',
+//       headers: {
+//         Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+//       }
+//     });
+
+//     const data = await response.json();
+//     const book = data.documents[0];
+    
+//     if (book && boxes[i]){
+//       const box = boxes.eq(i)
+
+//       box.html("");
+//        box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+//        box.append(`<h6>${book.title}</h6>`)
+//        box.append(`<p>${book.authors} | ${book.publisher}</p>`)
+//     }
+//   } 
+
+
+// }
+//   subbook5();
