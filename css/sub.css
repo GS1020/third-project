@@ -25,6 +25,10 @@ a {
   width: 1060px;
 }
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 header .scroll {
   width: 14px;
   height: 15px;
@@ -461,6 +465,9 @@ header .scroll {
   align-items: center;
   color: #80888a;
 }
+.book-box .book-inter p {
+  cursor: pointer;
+}
 .book-box .book-inter p:not(:last-child)::after {
   content: "|";
   margin: 10px;
@@ -488,6 +495,7 @@ header .scroll {
   font-size: 12px;
   border-radius: 20px;
   color: #80888a;
+  cursor: pointer;
 }
 
 .book-infor .price {
@@ -739,7 +747,7 @@ header .scroll {
 .book-tab {
   background-color: #ededed;
   position: sticky;
-  top: 50px;
+  top: 49px;
   z-index: 110;
 }
 
@@ -768,7 +776,6 @@ header .scroll {
 
 .long-infor {
   width: 100%;
-  height: 7000px;
 }
 .long-infor .container {
   display: flex;
@@ -780,17 +787,17 @@ header .scroll {
   padding: 50px 0px;
   color: #333333;
 }
-.long-infor .container .infor .book-table {
+.long-infor .container .infor #book-table {
   border-collapse: collapse;
 }
-.long-infor .container .infor .book-table th {
+.long-infor .container .infor #book-table th {
   background-color: rgba(238, 238, 238, 0.5019607843);
   color: #80888a;
   padding: 6px 20px;
   font-weight: 500;
   border: 1px solid #ededed;
 }
-.long-infor .container .infor .book-table td {
+.long-infor .container .infor #book-table td {
   color: #80888a;
   padding: 6px 20px;
   border-top: 1px solid #ededed;
@@ -1096,14 +1103,13 @@ header .scroll {
 }
 .long-infor .container .together {
   width: 100%;
-  height: 400px;
 }
-.long-infor .container .together html,
-.long-infor .container .together body {
+.long-infor .container html,
+.long-infor .container body {
   position: relative;
   height: 100%;
 }
-.long-infor .container .together body {
+.long-infor .container body {
   background: #eee;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -1111,28 +1117,275 @@ header .scroll {
   margin: 0;
   padding: 0;
 }
-.long-infor .container .together .swiper {
+.long-infor .container .mySwiper10 {
+  width: 100%;
+  max-width: 720px;
+  /* or 100% of parent */
+  height: 300px;
+  /* 반드시 높이 필요함 */
+  margin: 0 auto;
+  border: 1px solid #ededed;
+  padding: 20px;
+}
+.long-infor .container .swiper {
   width: 100%;
   height: 100%;
 }
-.long-infor .container .together .swiper-slide {
+.long-infor .container .mySwiper10 .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;
   display: flex;
+  flex-flow: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  width: 100%;
+  height: px;
+  flex-shrink: 0;
 }
-.long-infor .container .together .swiper-slide img {
+.long-infor .container .mySwiper10 .swiper-slide h6 {
+  font-size: 14px;
+  color: #3d3c3f;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 150px;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 10px;
+}
+.long-infor .container .mySwiper10 .swiper-slide p {
+  color: #80888a;
+  font-size: 12px;
+}
+.long-infor .container .swiper-slide img {
   display: block;
+  width: 140px;
+  height: 210px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.long-infor .container .swiper-button-next {
+  color: #80888a;
+  border: 1px solid #ededed;
+  top: 105px;
+  left: 670px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 30px;
+  opacity: 0.7;
+}
+.long-infor .container .swiper-button-prev {
+  color: #80888a;
+  border: 1px solid #ededed;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 30px;
+  opacity: 0.7;
+  top: 105px;
+  left: -20px;
+}
+.long-infor .container .together2 html,
+.long-infor .container .together2 body {
+  position: relative;
+  height: 100%;
+}
+.long-infor .container .together2 body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.long-infor .container .together2 .mySwiper11 {
+  width: 100%;
+  max-width: 720px;
+  /* or 100% of parent */
+  height: 300px;
+  /* 반드시 높이 필요함 */
+  margin: 0 auto;
+  border: 1px solid #ededed;
+  padding: 20px;
+}
+.long-infor .container .together2 .swiper {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+}
+.long-infor .container .together2 .mySwiper11 .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: px;
+  flex-shrink: 0;
+}
+.long-infor .container .together2 .mySwiper11 .swiper-slide h6 {
+  font-size: 14px;
+  color: #3d3c3f;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 150px;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 10px;
+}
+.long-infor .container .together2 .mySwiper11 .swiper-slide p {
+  color: #80888a;
+  font-size: 12px;
+}
+.long-infor .container .together3 html,
+.long-infor .container .together3 body {
+  position: relative;
+  height: 100%;
+}
+.long-infor .container .together3 body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.long-infor .container .together3 .mySwiper12 {
+  width: 100%;
+  max-width: 720px;
+  /* or 100% of parent */
+  height: 300px;
+  /* 반드시 높이 필요함 */
+  margin: 0 auto;
+  border: 1px solid #ededed;
+  padding: 20px;
+}
+.long-infor .container .together3 .swiper {
+  width: 100%;
+  height: 100%;
+}
+.long-infor .container .together3 .mySwiper12 .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: px;
+  flex-shrink: 0;
+}
+.long-infor .container .together3 .mySwiper12 .swiper-slide h6 {
+  font-size: 14px;
+  color: #3d3c3f;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 150px;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 10px;
+}
+.long-infor .container .together3 .mySwiper12 .swiper-slide p {
+  color: #80888a;
+  font-size: 12px;
+}
+.long-infor .container .together4 html,
+.long-infor .container .together4 body {
+  position: relative;
+  height: 100%;
+}
+.long-infor .container .together4 body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+.long-infor .container .together4 .mySwiper13 {
+  width: 100%;
+  max-width: 720px;
+  /* or 100% of parent */
+  height: 300px;
+  /* 반드시 높이 필요함 */
+  margin: 0 auto;
+  border: 1px solid #ededed;
+  padding: 20px;
+}
+.long-infor .container .together4 .swiper {
+  width: 100%;
+  height: 100%;
+}
+.long-infor .container .together4 .mySwiper13 .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: px;
+  flex-shrink: 0;
+}
+.long-infor .container .together4 .mySwiper13 .swiper-slide h6 {
+  font-size: 14px;
+  color: #3d3c3f;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 150px;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 10px;
+}
+.long-infor .container .together4 .mySwiper13 .swiper-slide p {
+  color: #80888a;
+  font-size: 12px;
+}
+.long-infor .container .exchange {
+  width: 100%;
+  margin-bottom: 70px;
+}
+.long-infor .container .exchange .ex-table {
+  border-collapse: collapse;
+}
+.long-infor .container .exchange .ex-table th {
+  width: 165px;
+  background-color: rgba(238, 238, 238, 0.5019607843);
+  border: 1px solid #ededed;
+  font-size: 13.5px;
+  color: #222222;
+  font-weight: 500;
+  padding: 30px;
+}
+.long-infor .container .exchange .ex-table td {
+  width: 555px;
+  padding: 10px;
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+}
+.long-infor .container .exchange .ex-table p {
+  font-size: 13px;
+  color: #80888a;
+  margin: 10px;
+}
+.long-infor .container .exchange .ex-table .ex-text {
+  color: #0067cb;
+  font-weight: bold;
+}
+.long-infor .container #tab1, .long-infor .container #tab2, .long-infor .container #tab3, .long-infor .container #tab4 {
+  scroll-margin-top: 97px;
 }
 .long-infor .container .payment {
   width: 300px;
   padding: 20px;
+  padding-bottom: 70px;
 }
 .long-infor .container .payment .payment-main {
   width: 280px;

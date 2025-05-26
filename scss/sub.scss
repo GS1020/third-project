@@ -5,6 +5,29 @@
 $w: 1060px;
 $headcolor: #80888a;
 
+
+@mixin swiper-button-left {
+    color: #80888a;
+    border: 1px solid #ededed;
+    top: 105px;
+    left: 670px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 30px;
+    opacity: 0.7;
+}
+
+@mixin swiper-button-right {
+    color: #80888a;
+    border: 1px solid #ededed;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 30px;
+    opacity: 0.7;
+    top: 105px;
+    left: -20px;
+}
+
 @mixin text-button-open {
     color: #646465;
     border: 1px solid #ededed;
@@ -599,6 +622,9 @@ header {
     }
 
     .book-inter {
+        p{
+            cursor: pointer;
+        }
         p:not(:last-child)::after {
             content: '|';
             margin: 10px;
@@ -638,6 +664,7 @@ header {
             font-size: 12px;
             border-radius: 20px;
             color: $headcolor;
+            cursor: pointer;
         }
     }
 }
@@ -959,7 +986,7 @@ header {
 .book-tab {
     background-color: #ededed;
     position: sticky;
-    top: 50px;
+    top: 49px;
     z-index: 110;
 }
 
@@ -994,7 +1021,7 @@ header {
 
 .long-infor {
     width: 100%;
-    height: 7000px;
+    
 
     .container {
         display: flex;
@@ -1008,7 +1035,7 @@ header {
                 color: #333333;
             }
 
-            .book-table {
+            #book-table {
                 border-collapse: collapse;
 
                 th {
@@ -1228,18 +1255,20 @@ header {
             }
         }
 
-        .book-txt4{
+        .book-txt4 {
             border-top: 1px solid #ededed;
             margin-top: 70px;
-            img{
+
+            img {
                 width: 100%;
                 height: auto;
             }
-            .gradient4{
+
+            .gradient4 {
                 @include gradient();
-                
+
             }
-             
+
             .scroll-box3 {
                 display: none;
                 margin-bottom: 30px;
@@ -1259,57 +1288,63 @@ header {
             }
         }
 
-        .authors{
+        .authors {
             margin-top: 70px;
             border-top: 1px solid #ededed;
-            
-            .authors-text{
-                p{
+
+            .authors-text {
+                p {
                     margin-left: 20px;
                 }
-                img{
+
+                img {
                     width: 118px;
                     border-radius: 50%;
                 }
-                span{
+
+                span {
                     font-weight: 600;
                     color: #333;
                 }
+
                 display: flex;
                 align-items: center;
-                
+
             }
         }
 
-        .book-rivew{
+        .book-rivew {
             margin-top: 100px;
-            
-            h2{
+
+            h2 {
                 font-size: 22px;
                 font-weight: 800;
                 padding: 5px 0px;
             }
-            .book-rivew-flex{
+
+            .book-rivew-flex {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-            p{
-                color: $headcolor;
-                font-size: 13px;
-                padding-top: 20px;
-            }
-            button{
-                background-color: #4aaf70;
-                color: #fff;
-                border: none;
-                padding: 10px 25px ;
-                font-size: 14px;
-                font-weight: 600;
-                cursor: pointer;
-            }
+
+                p {
+                    color: $headcolor;
+                    font-size: 13px;
+                    padding-top: 20px;
+                }
+
+                button {
+                    background-color: #4aaf70;
+                    color: #fff;
+                    border: none;
+                    padding: 10px 25px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
             }
 
-            .book-rivew-textbox{
+            .book-rivew-textbox {
                 width: 100%;
                 height: 115px;
                 border: 1px solid #a5a5a5;
@@ -1318,11 +1353,13 @@ header {
                 justify-content: center;
                 align-items: center;
                 margin-top: 15px;
-                p{
+
+                p {
                     font-size: 14px;
                     color: #645465;
                 }
-                span{
+
+                span {
                     font-size: 12px;
                     color: #4aaf70;
                     font-weight: 500;
@@ -1330,51 +1367,322 @@ header {
             }
         }
 
-        .together{
+        .together {
             width: 100%;
-            height: 400px;
-            
-              html,
-    body {
-      position: relative;
-      height: 100%;
-    }
 
-    body {
-      background: #eee;
-      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-      font-size: 14px;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
 
-    .swiper {
-      width: 100%;
-      height: 100%;
-    }
+        }
 
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
 
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mySwiper10 {
+            width: 100%;
+            max-width: 720px;
+            /* or 100% of parent */
+            height: 300px;
+            /* 반드시 높이 필요함 */
+            margin: 0 auto;
+            border: 1px solid #ededed;
+            padding: 20px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .mySwiper10 .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            height: px;
+            flex-shrink: 0;
+
+            h6 {
+                font-size: 14px;
+                color: #3d3c3f;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                width: 150px;
+                font-weight: 500;
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            p {
+                color: $headcolor;
+                font-size: 12px;
+            }
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 140px;
+            height: 210px;
+            object-fit: contain;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-button-next {
+            @include swiper-button-left();
+        }
+
+        .swiper-button-prev {
+            @include swiper-button-right();
+        }
+
+        .together2{
+            html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mySwiper11 {
+            width: 100%;
+            max-width: 720px;
+            /* or 100% of parent */
+            height: 300px;
+            /* 반드시 높이 필요함 */
+            margin: 0 auto;
+            border: 1px solid #ededed;
+            padding: 20px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .mySwiper11 .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            height: px;
+            flex-shrink: 0;
+
+            h6 {
+                font-size: 14px;
+                color: #3d3c3f;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                width: 150px;
+                font-weight: 500;
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            p {
+                color: $headcolor;
+                font-size: 12px;
+            }
+        }
+        }
+        .together3{
+            html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mySwiper12 {
+            width: 100%;
+            max-width: 720px;
+            /* or 100% of parent */
+            height: 300px;
+            /* 반드시 높이 필요함 */
+            margin: 0 auto;
+            border: 1px solid #ededed;
+            padding: 20px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .mySwiper12 .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            height: px;
+            flex-shrink: 0;
+
+            h6 {
+                font-size: 14px;
+                color: #3d3c3f;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                width: 150px;
+                font-weight: 500;
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            p {
+                color: $headcolor;
+                font-size: 12px;
+            }
+        }
+
+        }
+
+        .together4{
+               html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .mySwiper13 {
+            width: 100%;
+            max-width: 720px;
+            /* or 100% of parent */
+            height: 300px;
+            /* 반드시 높이 필요함 */
+            margin: 0 auto;
+            border: 1px solid #ededed;
+            padding: 20px;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .mySwiper13 .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: flex-start;
+            width: 100%;
+            height: px;
+            flex-shrink: 0;
+
+            h6 {
+                font-size: 14px;
+                color: #3d3c3f;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                width: 150px;
+                font-weight: 500;
+                text-align: left;
+                margin-top: 10px;
+            }
+
+            p {
+                color: $headcolor;
+                font-size: 12px;
+            }
+        }
+
+        
         }
 
 
+        .exchange{
+            width: 100%;
+            margin-bottom: 70px;
+            .ex-table{
+                border-collapse: collapse;
+            th{
+                width: 165px;
+                background-color: #eeeeee80;
+                border: 1px solid #ededed;
+                font-size: 13.5px;
+                color: #222222;
+                font-weight: 500;
+                padding: 30px;
+            }
+            td{
+                width: 555px;
+                padding: 10px;
+                border-top: 1px solid #ededed;
+                border-bottom: 1px solid #ededed;
+            }
+            p{
+                font-size: 13px;
+                color: $headcolor;
+                margin: 10px;
+            }
+            .ex-text{
+                color: #0067cb;
+                font-weight: bold;
+            }
+            }
+            
+        }
 
 
-
+#tab1, #tab2, #tab3, #tab4{
+    scroll-margin-top: 97px;
+}
 
 
 
@@ -1412,7 +1720,7 @@ header {
         .payment {
             width: 300px;
             padding: 20px;
-
+            padding-bottom: 70px;
 
             .payment-main {
                 width: 280px;
@@ -1422,7 +1730,7 @@ header {
                 padding: 20px;
                 position: sticky;
                 top: 100px;
-
+                
                 .payment-thumbnail {
                     width: 100%;
                     height: 112px;

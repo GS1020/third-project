@@ -111,7 +111,7 @@ subbook2();
 
 
 $('.book-tab-box li').click(function(e){
-    e.preventDefault();
+    
     $('.book-tab-box li').removeClass('active');
     $(this).addClass('active');
     
@@ -211,12 +211,12 @@ subbook4();
     spaceBetween: 10,
     slidesPerGroup:2,
     pagination: {
-      el: ".swiper-pagination",
+      el: ".swiper-pagination-event",
       clickable: true,
     },
     navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+      nextEl: ".swiper-button-next-event",
+      prevEl: ".swiper-button-prev-event",
     },
   });
 });
@@ -343,54 +343,216 @@ document.addEventListener('DOMContentLoaded',async function () {
 
 
 
-new Swiper('.mySwiper1', {
-  slidesPerView: 4,
-  spaceBetween: 30,
-  
-  slidesPerGroup: 4,
+
+
+
+
+var swiper = new Swiper('.mySwiper10', {
+  slidesPerView: 4,         
+  slidesPerGroup: 4,        
+  spaceBetween: 20,         
+  loop: true,
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
+    nextEl: ".mySwiper10-button-next",
+    prevEl: ".mySwiper10-button-prev",
   },
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true
-  }
 });
 
-// async function subbook5() {
 
-//   const boxes = $('.mySwiper1 .swiper-slide')
-//   const booksearch =['닥터프렌즈의 구사일생','서랍에 저녁을 넣어 두었다','지구에서 한아뿐','너무나 많은 여름이','고리오 영감','체호프단편선','북회귀선/남회귀선','세뇌 살인'];
 
-//   for (let i=0; i<booksearch.length; i++){
-//     const query=booksearch[i];
 
-//     const params = new URLSearchParams({
-//       target:'title',
-//       query:query
-//     });
 
-//     const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
-//       method: 'GET',
-//       headers: {
-//         Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
-//       }
-//     });
 
-//     const data = await response.json();
-//     const book = data.documents[0];
+async function subbook5() {
+
+  const boxes = $('.mySwiper10 .swiper-slide')
+  const booksearch =['닥터프렌즈의 구사일생','서랍에 저녁을 넣어 두었다','지구에서 한아뿐','너무나 많은 여름이','고리오 영감','체호프단편선','북회귀선/남회귀선','세뇌 살인'];
+
+  for (let i=0; i<booksearch.length; i++){
+    const query=booksearch[i];
+
+    const params = new URLSearchParams({
+      target:'title',
+      query:query
+    });
+
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    const data = await response.json();
+    const book = data.documents[0];
     
-//     if (book && boxes[i]){
-//       const box = boxes.eq(i)
+    if (book && boxes[i]){
+      const box = boxes.eq(i)
 
-//       box.html("");
-//        box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
-//        box.append(`<h6>${book.title}</h6>`)
-//        box.append(`<p>${book.authors} | ${book.publisher}</p>`)
-//     }
-//   } 
+      box.html("");
+       box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+       box.append(`<h6>${book.title}</h6>`)
+       box.append(`<p>${book.authors} | ${book.publisher}</p>`)
+    }
+  } 
 
 
-// }
-//   subbook5();
+}
+  subbook5();
+
+
+  var swiper = new Swiper('.mySwiper11', {
+  slidesPerView: 4,         
+  slidesPerGroup: 4,        
+  spaceBetween: 20,         
+  loop: true,
+  navigation: {
+    nextEl: ".mySwiper11-button-next",
+    prevEl: ".mySwiper11-button-prev",
+  },
+});
+
+
+async function subbook6() {
+
+  const boxes = $('.mySwiper11 .swiper-slide')
+  const booksearch =['디 에센셜 김연수','슬픔도 기쁨도 왜','페른베','절망의 구-','꿀잠 선물 가게','뭐 어때','소설','에세이'];
+
+  for (let i=0; i<booksearch.length; i++){
+    const query=booksearch[i];
+
+    const params = new URLSearchParams({
+      target:'title',
+      query:query
+    });
+
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    const data = await response.json();
+    const book = data.documents[0];
+    
+    if (book && boxes[i]){
+      const box = boxes.eq(i)
+
+      box.html("");
+       box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+       box.append(`<h6>${book.title}</h6>`)
+       box.append(`<p>${book.authors} | ${book.publisher}</p>`)
+    }
+  } 
+
+
+}
+  subbook6();
+
+
+
+    var swiper = new Swiper('.mySwiper12', {
+  slidesPerView: 4,         
+  slidesPerGroup: 4,        
+  spaceBetween: 20,         
+  loop: true,
+  navigation: {
+    nextEl: ".mySwiper12-button-next",
+    prevEl: ".mySwiper12-button-prev",
+  },
+});
+
+
+
+
+
+async function subbook7() {
+
+  const boxes = $('.mySwiper12 .swiper-slide')
+  const booksearch =['모순','소년이 온다','급류','파과','단 한 번의 삶','홍학의 자리','채식주의자','빛과 실'];
+
+  for (let i=0; i<booksearch.length; i++){
+    const query=booksearch[i];
+
+    const params = new URLSearchParams({
+      target:'title',
+      query:query
+    });
+
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    const data = await response.json();
+    const book = data.documents[0];
+    
+    if (book && boxes[i]){
+      const box = boxes.eq(i)
+
+      box.html("");
+       box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+       box.append(`<h6>${book.title}</h6>`)
+       box.append(`<p>${book.authors} | ${book.publisher}</p>`)
+    }
+  } 
+
+
+}
+  subbook7();
+
+
+
+      var swiper = new Swiper('.mySwiper13', {
+  slidesPerView: 4,         
+  slidesPerGroup: 4,        
+  spaceBetween: 20,         
+  loop: true,
+  navigation: {
+    nextEl: ".mySwiper13-button-next",
+    prevEl: ".mySwiper13-button-prev",
+  },
+});
+
+
+
+
+async function subbook8() {
+
+  const boxes = $('.mySwiper13 .swiper-slide')
+  const booksearch =['엄마를 기억하는 방법','시간의 깊이','마음비타민','꿀잠 선물 가게','밀실 황금시대의','화장실을 부탁해','10대도 피곤하다','슬픔도 기쁨도'];
+
+  for (let i=0; i<booksearch.length; i++){
+    const query=booksearch[i];
+
+    const params = new URLSearchParams({
+      target:'title',
+      query:query
+    });
+
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    const data = await response.json();
+    const book = data.documents[0];
+    
+    if (book && boxes[i]){
+      const box = boxes.eq(i)
+
+      box.html("");
+       box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+       box.append(`<h6>${book.title}</h6>`)
+       box.append(`<p>${book.authors} | ${book.publisher}</p>`)
+    }
+  } 
+
+
+}
+  subbook8();
