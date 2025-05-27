@@ -49,37 +49,7 @@ async function bookData1() {
 
 bookData1();
 
-$(document).ready(function () {
-  let hideTimer;
 
-  $('.nav3, .sub').on('mouseenter', function () {
-    clearTimeout(hideTimer);
-    $('.sub').stop(true, true).css('display', 'flex').fadeIn(200);
-  });
-
-  $('.nav3, .sub').on('mouseleave', function () {
-    hideTimer = setTimeout(function () {
-      $('.sub').stop(true, true).fadeOut(200);
-    }, 300);
-  });
-});
-
-
-$(document).ready(function () {
-  const boxes = ['.kkbook2', '.kkbook3', '.kkbook4'];
-
-  $('.kkbook li').mouseenter(function () {
-    const index = $(this).index();
-
-
-    boxes.forEach(box => $(box).stop().hide());
-
-
-    if (boxes[index]) {
-      $(boxes[index]).stop().css('display', 'flex').fadeIn();
-    }
-  });
-});
 
 async function bookData() {
   const params = new URLSearchParams({
@@ -395,17 +365,35 @@ var swiper3 = new Swiper(".mySwiper3", {
 });
 
 
+async function bookData6(category='소설/에세이/시') {
+  const categoryBooks = {
+    '소설/에세이/시':['디 에센셜 김연수','슬픔도 기쁨도 왜 이리 찬란한가','페른베','절망의 구','꿀잠'],
+    '자녀교육/건강/여행/요리':['동공이 약사의','부케북 Happy','코바늘로','제주 걷기 여행','수면의 뇌과학'],
+    '유아/어린이/초등학습':['그물에 걸린 무지개','치코','아홉 살 환경','설민석의 한국사','퍄퍄킴'],
+    '중/고학습':['EBS 수능완성','수학의 힘','쎈 중등 수학','유형 + 내신','메가스터디'],
+    '인문/역사':['친밀한 파괴자','화장실을 부탁해','생각대로 살지','초압축 교양수업','어제보다 조금'],
+    '외국어':['3초 5단어','아니마칸지의','카와이 일본어','디즈니 픽사 베스트','영어 하기 딱 좋은'],
+    '예술':['오아시스 더 마스터플랜','살롱 드 경성','joy','꽃이 피는 루하의','동글동글 귀여운'],
+    '컴퓨터/IT':['주니어 백엔드','시나공 빅데이터분석기사','모두의 딥러닝','요즘 교사를 위한','머신러닝'],
+    '기술/공학':['탈주택 - 공동체를 설계하는 건축']
+    
+  }
+  const boxes = $('.mySwiper3 .swiper-slide');
+  const booksearch = categoryBooks[category] || [];
 
+  for (let i=0; i<boxes.length;i++){
+      const box = boxes.eq(i);
+      box.html("");
+  }
 
+  for (let i=0; i<booksearch.length;i++){
+    const query=booksearch[i];
 
-async function bookData6() {
-  const params = new URLSearchParams({
-    target: 'title',
-    query: '셀러',
-    size: 30
-  });
+    const params = new URLSearchParams({
+      target: 'title',
+      query: query
+    });
 
-  try {
     const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
       method: 'GET',
       headers: {
@@ -413,24 +401,24 @@ async function bookData6() {
       }
     });
 
-    if (!response.ok) {
-      throw new Error(`HTTP 오류 발생! 상태 코드: ${response.status}`);
-    }
-
     const data = await response.json();
-    const boxx = $('.mySwiper3 .swiper-slide');
+    const book =data.documents[0];
 
-    for (let i = 0; i < 30; i++) {
-      const box = $(boxx[i]);
-      const books = data.documents[i];
-      box.append(`<img src="${books.thumbnail}" alt="${books.title}">`);
-      box.append(`<div class=hotbox>
-        <h5>${books.title}</h5>
-        <h6>${books.authors}</h6>
-        `)
+    if(book && boxes[i]){
+      
+      const box = $(boxes[i]);
+
+      box.html("");
+
+      box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+      box.append(`<div class="textbox">
+        <h5>${book.title}</h5>
+        <p>${book.authors}</p>
+
+      </div>`);
 
       box.css('position', 'relative');
-      const ten = books.contents.substring(0, 160);
+      const ten = book.contents.substring(0, 160);
       box.append(`<div class="overlay"
         style="background-color:#333;width:100%;height:273px;opacity:0.9;color:#fff; position:absolute; padding:20px;top:0;left:0;overflow:hidden; display:none"></div>`);
       box.find('.overlay').append(`<p>${ten}</p>`)
@@ -454,17 +442,27 @@ async function bookData6() {
         $(this).children('.overlay').stop().fadeOut();
       });
     }
-  } catch (error) {
-    console.error('오류 발생:', error);
   }
-}
 
+}
 bookData6();
+
+
 
 $('.hothead-li li').click(function () {
   $('.hothead-li li').removeClass('hot-lii');
   $(this).addClass('hot-lii');
+
+    const category = $(this).text().trim()
+  bookData6(category);
 })
+$(document).ready(function(){
+    bookData6('소설/에세이/시');
+  });
+
+
+
+
 
 
 async function bookData7() {
@@ -879,3 +877,42 @@ async function bookData11() {
   }
 }
 bookData11();  
+
+
+
+$(document).ready(function () {
+  // 초기 상태 설정
+  $('.kbook-ul').show();
+  $('.kbook-ul2, .kbook-ul3').hide();
+  $('.nav-bigsize').hide();
+
+  // 카테고리 항목에 마우스 올릴 때 대응
+  $('.kbook-category li').mouseenter(function () {
+    let i = $(this).index();
+    $('.kbook-ul, .kbook-ul2, .kbook-ul3').hide();
+
+    if (i === 0) {
+      $('.kbook-ul').show();
+    } else if (i === 1) {
+      $('.kbook-ul2').show();
+    } else if (i === 2) {
+      $('.kbook-ul3').show();
+    }
+  });
+
+  // 네비게이션 메뉴 마우스 인터랙션
+  let hideTimer;
+
+  $('.nav3, .nav-bigsize').on('mouseenter', function () {
+    clearTimeout(hideTimer);
+    $('.nav-bigsize').stop(true, true).fadeIn(200).css('display', 'flex');
+  });
+
+  $('.nav3, .nav-bigsize').on('mouseleave', function () {
+    hideTimer = setTimeout(function () {
+      $('.nav-bigsize').stop(true, true).fadeOut(200);
+    }, 300);
+  });
+});
+
+

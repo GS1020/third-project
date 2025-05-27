@@ -199,6 +199,7 @@ header .scroll {
 .nav-category {
   width: 100%;
   height: 50px;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -209,8 +210,8 @@ header .scroll {
 .nav-category .nav3 {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  width: 160px;
+  justify-content: space-between;
+  width: 130px;
   height: 50px;
   cursor: pointer;
 }
@@ -242,6 +243,91 @@ header .scroll {
   color: #fff;
   margin: 10px;
   font-size: 12px;
+}
+
+.nav-bigsize {
+  display: flex;
+  background-color: #fff;
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+.nav-bigsize .sub {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  height: 450px;
+}
+.nav-bigsize .sub .kbook-category-flex {
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+  height: 100%;
+}
+.nav-bigsize .sub .kbook-category-flex .kbook-category {
+  height: 100%;
+  background-color: #eaeded;
+}
+.nav-bigsize .sub .kbook-category-flex .kbook-category li {
+  padding: 10px;
+}
+.nav-bigsize .sub .kbook-category-flex .kbook-category li a {
+  color: #80888a;
+}
+.nav-bigsize .sub .kbook-category-flex .kbook-category li:hover {
+  background-color: #fff;
+}
+.nav-bigsize .sub .kbook-category-flex .kbook-category li:hover::after {
+  content: "⟩";
+  float: right;
+  line-height: 20px;
+  color: #80888a;
+}
+.nav-bigsize .sub .survice {
+  width: 160px;
+  height: 80px;
+  background-color: #fefefe;
+  padding: 10px;
+  line-height: 45px;
+}
+.nav-bigsize .sub .survice a {
+  color: #80888a;
+}
+
+.kbook-li-box {
+  display: flex;
+}
+.kbook-li-box .kbook-ul li {
+  padding: 10px 10px 0px 20px;
+  font-size: 13px;
+  margin-right: 30px;
+}
+.kbook-li-box .kbook-ul a {
+  color: #80888a;
+}
+.kbook-li-box .kbook-ul2 {
+  display: none;
+}
+.kbook-li-box .kbook-ul2 li {
+  padding: 10px 10px 0px 20px;
+  font-size: 13px;
+  margin-right: 30px;
+}
+.kbook-li-box .kbook-ul2 a {
+  color: #80888a;
+}
+.kbook-li-box .kbook-ul3 {
+  display: none;
+  margin-top: 10px;
+}
+.kbook-li-box .kbook-ul3 li {
+  padding: 5px 10px 0px 20px;
+  font-size: 12px;
+  margin-right: 30px;
+  color: #80888a;
+}
+.kbook-li-box .kbook-ul3 a {
+  color: #80888a;
 }
 
 .slider {
@@ -322,94 +408,8 @@ header .scroll {
   margin: 0 10px;
   font-size: 13px;
 }
-.slider .sub {
-  height: 450px;
-  background-color: #fff;
-  display: flex;
-  display: none;
-  position: absolute;
-  z-index: 1000;
-}
-.slider .kbook {
-  width: 160px;
-  height: 450px;
-  background-color: #f6f6f6;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-between;
-}
-.slider .kbook .kkbook li {
-  padding: 13px;
-}
-.slider .kbook .kkbook li:hover {
-  background-color: #fff;
-}
-.slider .kbook .kkbook li:hover::after {
-  content: "⟩";
-  float: right;
-  color: #80888a;
-}
-.slider .kbook .survice {
-  display: flex;
-  background-color: #eaeded;
-  width: 160px;
-  height: 66.5px;
-  padding: 13px;
-  line-height: 40px;
-}
-.slider .kbook2 {
-  display: flex;
-  flex-flow: column;
-  background-color: #fff;
-}
-.slider .kbook2 .kkbook2 {
-  display: flex;
-  justify-content: space-around;
-  width: 500px;
-  height: 400px;
-  font-size: 13px;
-  padding-top: 10px;
-}
-.slider .kbook2 .kkbook2 li {
-  padding: 3px;
-}
-.slider .kbook2 .kkbook2 a {
-  color: #80888a;
-}
-.slider .kbook2 .kkbook3 {
-  display: flex;
-  justify-content: space-around;
-  width: 500px;
-  height: 400px;
-  font-size: 13px;
-  padding-top: 10px;
-  display: none;
-  justify-content: space-around;
-  padding-right: 100px;
-}
-.slider .kbook2 .kkbook3 li {
-  padding: 3px;
-}
-.slider .kbook2 .kkbook3 a {
-  color: #80888a;
-}
-.slider .kbook2 .kkbook4 {
-  display: flex;
-  justify-content: space-around;
-  width: 500px;
-  height: 400px;
-  font-size: 13px;
-  padding-top: 10px;
-  font-size: 12px;
-  display: none;
-}
-.slider .kbook2 .kkbook4 li {
-  padding: 3px;
-}
-.slider .kbook2 .kkbook4 a {
-  color: #80888a;
-}
-.slider .bigbook {
+
+.bigbook {
   width: 400px;
   height: auto;
   background-color: rgba(0, 0, 0, 0.7);
@@ -420,24 +420,34 @@ header .scroll {
   align-items: center;
   padding: 10px;
 }
-.slider .bigbook img {
+.bigbook img {
   width: 60%;
   height: 60%;
 }
-.slider .survice2 {
+
+.survice2 {
   width: 100%;
   height: 70px;
-  display: flex;
-  flex-flow: row;
-  justify-content: space-evenly;
-  align-items: center;
   background-color: #f6f6f6;
+  line-height: 60px;
 }
-.slider .survice2 a {
+.survice2 ul {
+  display: flex;
+  align-items: center;
+}
+.survice2 a {
   color: #80888a;
 }
-.slider .survice2 li {
+.survice2 li {
   font-size: 13px;
+  margin-left: 10px;
+}
+
+.kbook-flex {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .section-shorts {
@@ -457,6 +467,7 @@ header .scroll {
   width: 130px;
   height: 184px;
   background-color: #fff;
+  position: absolute;
   text-align: center;
   margin: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
@@ -701,8 +712,8 @@ header .scroll {
   margin-top: 10px;
   width: 160px;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .section-bestbook .bestbox .textbox h6 {
   color: #fff;
@@ -791,12 +802,25 @@ header .scroll {
   padding: 5px;
 }
 .section-popular .hot-slide .swiper-slide {
-  text-align: center;
+  text-align: left;
   font-size: 18px;
   display: flex;
   flex-flow: column;
   cursor: pointer;
   align-items: center;
+}
+.section-popular .hot-slide .swiper-slide h5 {
+  font-size: 14px;
+  color: #3d3c3f;
+  font-weight: 500;
+  margin-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 180px;
+}
+.section-popular .hot-slide .swiper-slide .textbox p {
+  color: #80888a;
 }
 .section-popular .hot-slide .swiper-slide img {
   display: block;
@@ -809,8 +833,8 @@ header .scroll {
 .section-popular .hotbox h5 {
   padding: 5px;
   font-weight: 400;
-  text-overflow: ellipsis;
   overflow: hidden;
+  text-overflow: ellipsis;
   white-space: nowrap;
   width: 170px;
 }
@@ -1249,8 +1273,8 @@ header .scroll {
   font-weight: 500;
   margin: 5px 0 5px 0;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
+  white-space: nowrap;
   width: 160px;
 }
 .salebook .swiper-slide h6 {

@@ -5,6 +5,12 @@
 $w: 1060px;
 $headcolor: #80888a;
 
+@mixin text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 @mixin topnav {
     display: flex;
 
@@ -80,7 +86,7 @@ $headcolor: #80888a;
 
 // 헤더 
 header {
-   
+
     .scroll {
         width: 14px;
         height: 15px;
@@ -226,9 +232,7 @@ header {
             margin: 0;
             font-weight: bold;
             font-size: 12px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap; // 한 줄만
+            @include text-overflow();
             color: $headcolor;
         }
 
@@ -267,6 +271,7 @@ header {
     position: sticky;
     top: 0px;
     z-index: 1000;
+    
     img {
         width: 25px;
         height: 25px;
@@ -276,10 +281,11 @@ header {
 .nav-category {
     width: 100%;
     height: 50px;
-
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 
     a {
         color: #fff;
@@ -288,8 +294,8 @@ header {
     .nav3 {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
-        width: 160px;
+        justify-content: space-between;
+        width: 130px;
         height: 50px;
         cursor: pointer;
 
@@ -337,6 +343,126 @@ header {
 
 
 
+.nav-bigsize {
+    display: flex; // 또는 grid
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    display: none;
+    .sub {
+        
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        height: 450px;
+
+        .kbook-category-flex {
+            flex-direction: column;
+            justify-content: space-between;
+            display: flex;
+            height: 100%;
+
+            .kbook-category {
+                height: 100%;
+                background-color: #eaeded;
+
+                li {
+                    padding: 10px;
+
+                    a {
+                        color: $headcolor;
+                    }
+                }
+
+                li:hover {
+                    background-color: #fff;
+                }
+
+                li:hover::after {
+                    content: "⟩";
+                    float: right;
+                    line-height: 20px;
+                    color: $headcolor;
+                }
+            }
+
+
+        }
+
+        .survice {
+            width: 160px;
+            height: 80px;
+            background-color: #fefefe;
+            padding: 10px;
+            line-height: 45px;
+            a {
+                color: $headcolor;
+            }
+        }
+
+
+
+    }
+}
+
+.kbook-li-box {
+
+    display: flex;
+    
+    .kbook-ul {
+
+        li {
+            padding: 10px 10px 0px 20px;
+            font-size: 13px;
+            margin-right: 30px;
+
+        }
+
+        a {
+            color: $headcolor;
+        }
+    }
+
+
+    .kbook-ul2 {
+        display: none;
+
+        li {
+            padding: 10px 10px 0px 20px;
+            font-size: 13px;
+            margin-right: 30px;
+
+        }
+
+        a {
+            color: $headcolor;
+        }
+    }
+
+    .kbook-ul3 {
+        display: none;
+        margin-top: 10px;
+
+        li {
+            padding: 5px 10px 0px 20px;
+            font-size: 12px;
+            margin-right: 30px;
+            color: $headcolor;
+        }
+
+        a {
+            color: $headcolor;
+        }
+    }
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -345,8 +471,8 @@ header {
     height: 350px;
     background-color: cornflowerblue;
     position: relative;
-    
-    .swiper-pagination{
+
+    .swiper-pagination {
         color: #fff;
         background-color: #333;
         width: 90px;
@@ -357,6 +483,7 @@ header {
         padding: 10px;
         border-radius: 20px;
     }
+
     body {
         background: #eee;
         font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -436,121 +563,58 @@ header {
 
 
 
-    .sub {
-
-        height: 450px;
-        background-color: #fff;
-        display: flex;
-        display: none;
-        position: absolute;
-        z-index: 1000;
 
 
 
-    }
+}
 
-    .kbook {
-        width: 160px;
-        height: 450px;
-        background-color: #f6f6f6;
+.bigbook {
+    width: 400px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
 
-        display: flex;
-        flex-flow: column;
-        justify-content: space-between;
-
-        .kkbook {
-            li {
-                padding: 13px;
-            }
-
-            li:hover {
-                background-color: #fff;
-            }
-
-            li:hover::after {
-                content: "⟩";
-                float: right;
-                color: $headcolor;
-
-            }
-        }
-
-        .survice {
-            display: flex;
-            background-color: #eaeded;
-            width: 160px;
-            height: 66.5px;
-            padding: 13px;
-            line-height: 40px;
-
-        }
-    }
-
-    .kbook2 {
-        display: flex;
-        flex-flow: column;
-
-
-        background-color: #fff;
-
-        .kkbook2 {
-            @include kkbook-style();
-
-        }
-
-        .kkbook3 {
-            @include kkbook-style();
-            display: none;
-            justify-content: space-around;
-            padding-right: 100px
-        }
-
-        .kkbook4 {
-            @include kkbook-style();
-            font-size: 12px;
-            display: none
-        }
-    }
-
-    .bigbook {
-        width: 400px;
-        height: auto;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: #fff;
-        display: flex;
-        flex-flow: column;
-        justify-content: space-around;
-        align-items: center;
-        padding: 10px;
-        img {
-            width: 60%;
-            height: 60%;
-        }
-
-        
-    }
-
-    .survice2 {
-        width: 100%;
-        height: 70px;
-        display: flex;
-        flex-flow: row;
-        justify-content: space-evenly;
-        align-items: center;
-        background-color: #f6f6f6;
-
-        a {
-            color: $headcolor;
-        }
-
-        li {
-            font-size: 13px;
-        }
-
+    img {
+        width: 60%;
+        height: 60%;
     }
 
 
 }
+
+.survice2 {
+    width: 100%;
+    height: 70px;
+    background-color: #f6f6f6;
+    line-height:60px;
+    ul{
+        display: flex;
+        align-items: center;
+    }
+
+    a {
+        color: $headcolor;
+    }
+
+    li {
+        font-size: 13px;
+        margin-left: 10px;
+    }
+    
+}
+.kbook-flex{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
 
 .section-shorts {
     width: 100%;
@@ -571,7 +635,7 @@ header {
         width: 130px;
         height: 184px;
         background-color: #fff;
-        
+        position: absolute;
         img {
             width: 72px;
             height: 104px;
@@ -621,7 +685,7 @@ header {
         width: 11px;
         height: 11px;
         border-radius: 100%;
-        
+
     }
 
 
@@ -727,7 +791,7 @@ header {
     .todaybox {
         width: 190px;
         height: 280px;
-        
+
         img {
             width: 100%;
             height: 100%;
@@ -796,6 +860,7 @@ header {
         @include categoryhead();
         color: $headcolor;
         cursor: pointer;
+
         .besthead-lii {
             @include categoryhead2();
             color: #fff;
@@ -855,9 +920,7 @@ header {
                 font-size: 20px;
                 margin-top: 10px;
                 width: 160px;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
+                @include text-overflow();
             }
 
             h6 {
@@ -911,7 +974,7 @@ header {
         color: $headcolor;
         font-size: 12px;
         cursor: pointer;
-        
+
 
         .hot-lii {
             @include categoryhead2();
@@ -946,13 +1009,28 @@ header {
         }
 
         .swiper-slide {
-            text-align: center;
+            text-align: left;
             font-size: 18px;
 
             display: flex;
             flex-flow: column;
             cursor: pointer;
             align-items: center;
+
+            h5 {
+                font-size: 14px;
+                color: #3d3c3f;
+                font-weight: 500;
+                margin-top: 10px;
+                @include text-overflow();
+                width: 180px;
+            }
+
+            .textbox {
+                p {
+                    color: $headcolor;
+                }
+            }
         }
 
         .swiper-slide img {
@@ -970,12 +1048,10 @@ header {
 
     .hotbox {
         h5 {
-            
+
             padding: 5px;
             font-weight: 400;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            white-space: nowrap;
+            @include text-overflow();
             width: 170px;
         }
 
@@ -1186,9 +1262,7 @@ header {
             h5 {
                 font-weight: 500;
                 margin: 5px 0 5px 0;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
+                @include text-overflow();
                 width: 170px;
             }
 
@@ -1231,12 +1305,13 @@ header {
     height: 516px;
     margin-top: 70px;
 
-     .swiper-slide-active,
-        .swiper-slide-duplicate-active {
+    .swiper-slide-active,
+    .swiper-slide-duplicate-active {
         opacity: 1 !important;
         transform: scale(1) !important;
-        filter: none !important; 
-        }
+        filter: none !important;
+    }
+
     .howbook-head {
         @include headh2();
     }
@@ -1283,7 +1358,7 @@ header {
     }
 
 
-        
+
 
 
     .mySwiper6 .swiper-slide {
@@ -1302,8 +1377,8 @@ header {
         opacity: 0.3;
         transform: scale(0.9);
         filter: blur(2px);
-        
-        
+
+
         .imgbox {
             display: flex;
             justify-content: space-around;
@@ -1402,12 +1477,14 @@ header {
 .salebook {
     margin-top: 70px;
     width: 100%;
-    .saleprice{
+
+    .saleprice {
         display: flex;
-        justify-content:space-around;
+        justify-content: space-around;
         width: 130px;
         align-items: center;
-        p{
+
+        p {
             color: $headcolor;
             font-size: 14px;
         }
@@ -1461,9 +1538,7 @@ header {
         h5 {
             font-weight: 500;
             margin: 5px 0 5px 0;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+            @include text-overflow();
             width: 160px;
         }
 
@@ -1471,16 +1546,18 @@ header {
             color: $headcolor;
             font-size: 13px;
         }
-        h7{
+
+        h7 {
             color: tomato;
         }
+
         p {
             font-size: 12px;
-            
-            
+
+
         }
 
-        
+
     }
 
     .swiper-slide img {
@@ -1490,7 +1567,7 @@ header {
         object-fit: cover;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-        
+
 }
 
 
@@ -1507,7 +1584,7 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
+
         .gong2 {
             width: 504px;
             height: 29px;
@@ -1522,7 +1599,7 @@ header {
             a {
                 color: $headcolor;
             }
-            
+
             font-size: 20px;
         }
 

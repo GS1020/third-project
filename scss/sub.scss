@@ -5,7 +5,11 @@
 $w: 1060px;
 $headcolor: #80888a;
 
-
+@mixin text-overflow{
+            overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+        }
 @mixin swiper-button-left {
     color: #80888a;
     border: 1px solid #ededed;
@@ -129,6 +133,7 @@ $headcolor: #80888a;
 
 // 헤더 
 header {
+
     .scroll {
         width: 14px;
         height: 15px;
@@ -258,6 +263,7 @@ header {
     img {
         width: 65px;
         height: 95px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .text-area {
@@ -273,9 +279,7 @@ header {
             margin: 0;
             font-weight: bold;
             font-size: 12px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap; // 한 줄만
+            @include text-overflow();
             color: $headcolor;
         }
 
@@ -305,6 +309,7 @@ header {
 
 
 // 헤더 네비
+
 .header_nav {
     width: 100%;
     height: 50px;
@@ -312,8 +317,8 @@ header {
     border-bottom: solid 1px #fff;
     position: sticky;
     top: 0px;
-    z-index: 100;
-
+    z-index: 1000;
+    
     img {
         width: 25px;
         height: 25px;
@@ -323,10 +328,11 @@ header {
 .nav-category {
     width: 100%;
     height: 50px;
-
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 
     a {
         color: #fff;
@@ -335,8 +341,8 @@ header {
     .nav3 {
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
-        width: 160px;
+        justify-content: space-between;
+        width: 130px;
         height: 50px;
         cursor: pointer;
 
@@ -382,137 +388,284 @@ header {
 
 }
 
-.slider {
+
+
+.nav-bigsize {
+    display: flex; // 또는 grid
+    background-color: #fff;
+    position: absolute;
     width: 100%;
-    height: 0px;
-    background-color: cornflowerblue;
-    position: relative;
-
-
-
-
-
-
+    display: none;
     .sub {
-
-        height: 450px;
+        
         background-color: #fff;
         display: flex;
-        display: none;
-        position: absolute;
-        z-index: 1000;
-
-
-
-    }
-
-    .kbook {
-        width: 160px;
-        height: 450px;
-        background-color: #f6f6f6;
-
-        display: flex;
-        flex-flow: column;
         justify-content: space-between;
+        height: 450px;
 
-        .kkbook {
-            li {
-                padding: 13px;
+        .kbook-category-flex {
+            flex-direction: column;
+            justify-content: space-between;
+            display: flex;
+            height: 100%;
+
+            .kbook-category {
+                height: 100%;
+                background-color: #eaeded;
+
+                li {
+                    padding: 10px;
+
+                    a {
+                        color: $headcolor;
+                    }
+                }
+
+                li:hover {
+                    background-color: #fff;
+                }
+
+                li:hover::after {
+                    content: "⟩";
+                    float: right;
+                    line-height: 20px;
+                    color: $headcolor;
+                }
             }
 
-            li:hover {
-                background-color: #fff;
-            }
 
-            li:hover::after {
-                content: "⟩";
-                float: right;
-                color: $headcolor;
-
-            }
         }
 
         .survice {
-            display: flex;
-            background-color: #eaeded;
             width: 160px;
-            height: 66.5px;
-            padding: 13px;
-            line-height: 40px;
-
-        }
-    }
-
-    .kbook2 {
-        display: flex;
-        flex-flow: column;
-
-
-        background-color: #fff;
-
-        .kkbook2 {
-            @include kkbook-style();
-
+            height: 80px;
+            background-color: #fefefe;
+            padding: 10px;
+            line-height: 45px;
+            a {
+                color: $headcolor;
+            }
         }
 
-        .kkbook3 {
-            @include kkbook-style();
-            display: none;
-            justify-content: space-around;
-            padding-right: 100px
-        }
-
-        .kkbook4 {
-            @include kkbook-style();
-            font-size: 12px;
-            display: none
-        }
-    }
-
-    .bigbook {
-        width: 400px;
-        height: auto;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: #fff;
-        display: flex;
-        flex-flow: column;
-        justify-content: space-around;
-        align-items: center;
-        padding: 10px;
-
-        img {
-            width: 60%;
-            height: 60%;
-        }
 
 
     }
+}
 
-    .survice2 {
-        width: 100%;
-        height: 70px;
-        display: flex;
-        flex-flow: row;
-        justify-content: space-evenly;
-        align-items: center;
-        background-color: #f6f6f6;
+.kbook-li-box {
+
+    display: flex;
+    
+    .kbook-ul {
+
+        li {
+            padding: 10px 10px 0px 20px;
+            font-size: 13px;
+            margin-right: 30px;
+
+        }
 
         a {
             color: $headcolor;
         }
+    }
+
+
+    .kbook-ul2 {
+        display: none;
 
         li {
+            padding: 10px 10px 0px 20px;
             font-size: 13px;
+            margin-right: 30px;
+
         }
 
+        a {
+            color: $headcolor;
+        }
+    }
+
+    .kbook-ul3 {
+        display: none;
+        margin-top: 10px;
+
+        li {
+            padding: 5px 10px 0px 20px;
+            font-size: 12px;
+            margin-right: 30px;
+            color: $headcolor;
+        }
+
+        a {
+            color: $headcolor;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+.slider {
+    width: 100%;
+    height: 350px;
+    background-color: cornflowerblue;
+    position: relative;
+
+    .swiper-pagination {
+        color: #fff;
+        background-color: #333;
+        width: 90px;
+        opacity: 0.7;
+        position: absolute;
+        top: 100;
+        left: 900px;
+        padding: 10px;
+        border-radius: 20px;
+    }
+
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper-button-next {
+        color: $headcolor;
+        border: 1px solid #ededed;
+        left: 65.5%;
+        background-color: #ffffff;
+        border-radius: 50%;
+        padding: 30px;
+        opacity: 0.7;
+    }
+
+    .swiper-button-prev {
+        color: $headcolor;
+        border: 1px solid #ededed;
+        left: 31.3%;
+        background-color: #ffffff;
+        border-radius: 50%;
+        padding: 30px;
+        opacity: 0.7;
+    }
+
+    .swiper {
+        width: 100%;
+        height: 500px;
+        position: absolute;
+    }
+
+    .swiper-slide img {
+
+        width: 100%;
+        height: 430px;
+
+        border-radius: 20px;
+    }
+
+
+
+
+    // }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 425px;
+        border-radius: 20px;
+        margin-top: 50px;
+
+    }
+
+    .append-buttons {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .append-buttons a {
+        display: inline-block;
+        border: 1px solid #007aff;
+        color: #007aff;
+        text-decoration: none;
+        padding: 4px 10px;
+        border-radius: 4px;
+        margin: 0 10px;
+        font-size: 13px;
+    }
+
+
+
+
+
+
+
+}
+
+.bigbook {
+    width: 400px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+
+    img {
+        width: 60%;
+        height: 60%;
     }
 
 
 }
 
+.survice2 {
+    width: 100%;
+    height: 70px;
+    background-color: #f6f6f6;
+    line-height:60px;
+    ul{
+        display: flex;
+        align-items: center;
+    }
+
+    a {
+        color: $headcolor;
+    }
+
+    li {
+        font-size: 13px;
+        margin-left: 10px;
+    }
+    
+}
+.kbook-flex{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+
 .section-shorts {
     width: 100%;
-    height: 10px;
+    height: 0px;
     position: relative;
 
     :nth-of-type(1) {
@@ -529,7 +682,8 @@ header {
         width: 130px;
         height: 184px;
         background-color: #fff;
-
+        position: absolute;
+        
         img {
             width: 72px;
             height: 104px;
@@ -538,7 +692,7 @@ header {
 
         text-align: center;
         margin: 10px;
-        box-shadow: 1px 0px 3px 3px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
         display: flex;
         flex-flow: column;
         justify-content: space-evenly;
@@ -1142,6 +1296,7 @@ header {
                     width: 100%;
                     height: 100%;
                     object-fit: contain;
+                    cursor: pointer;
                 }
 
                 .swiper {
@@ -1420,9 +1575,7 @@ header {
             h6 {
                 font-size: 14px;
                 color: #3d3c3f;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
+                @include text-overflow();
                 width: 150px;
                 font-weight: 500;
                 text-align: left;
@@ -1440,6 +1593,7 @@ header {
             width: 140px;
             height: 210px;
             object-fit: contain;
+            cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -1499,9 +1653,7 @@ header {
             h6 {
                 font-size: 14px;
                 color: #3d3c3f;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
+                @include text-overflow();
                 width: 150px;
                 font-weight: 500;
                 text-align: left;
@@ -1562,9 +1714,7 @@ header {
             h6 {
                 font-size: 14px;
                 color: #3d3c3f;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
+                @include text-overflow();
                 width: 150px;
                 font-weight: 500;
                 text-align: left;
@@ -1627,9 +1777,7 @@ header {
             h6 {
                 font-size: 14px;
                 color: #3d3c3f;
-                overflow: hidden;
-                white-space: nowrap;
-                text-overflow: ellipsis;
+                @include text-overflow();
                 width: 150px;
                 font-weight: 500;
                 text-align: left;

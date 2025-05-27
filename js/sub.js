@@ -523,7 +523,7 @@ async function subbook7() {
 async function subbook8() {
 
   const boxes = $('.mySwiper13 .swiper-slide')
-  const booksearch =['엄마를 기억하는 방법','시간의 깊이','마음비타민','꿀잠 선물 가게','밀실 황금시대의','화장실을 부탁해','10대도 피곤하다','슬픔도 기쁨도'];
+  const booksearch =['엄마를 기억하는 방법','뭐 어때','이쁘지','꿀잠 선물 가게','밀실 황금시대의','화장실을 부탁해','10대도 피곤하다','슬픔도 기쁨도'];
 
   for (let i=0; i<booksearch.length; i++){
     const query=booksearch[i];
@@ -556,3 +556,222 @@ async function subbook8() {
 
 }
   subbook8();
+
+
+
+
+
+
+
+
+
+
+  async function bookData1() {
+  const params = new URLSearchParams({
+    target: 'title',
+    query: "아빠 당신의 이야기를 들려주세요",
+
+  });
+
+  try {
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP 오류 오류코드: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.documents.length === 0) {
+      $('.searchbook-container').append('<p>책 정보를 찾을 수 없습니다.</p>');
+      return;
+    }
+
+    const book = data.documents[0];
+    const summary = book.contents.substring(0, 60);
+
+
+    const html = `
+        <div class="searchbook">
+          <img src="${book.thumbnail}" alt="책 썸네일">
+          <div class="text-area">
+            <p>${book.title}</p>
+            <h6>${summary}</h6>
+            <h5> < > </h5>
+          </div>
+        </div>
+      `;
+
+    $('.searchbook-container').append(html);
+
+  } catch (error) {
+    console.error('오류발생:', error);
+    $('.searchbook-container').append('<p>데이터 로드 중 오류 발생</p>');
+  }
+}
+
+bookData1();
+
+
+
+
+
+
+async function bookData() {
+  const params = new URLSearchParams({
+    target: 'title',
+    query: '나혼자만 레벨업',
+    size: 1
+
+  });
+
+  try {
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+
+    if (!response.ok) {
+      throw new Error(`HTTP 오류 오류코드: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    if (data.documents.length === 0) {
+      $('.searchbook-container').append('<p>책 정보를 찾을 수 없습니다.</p>');
+      return;
+    }
+
+
+
+    for (let i = 0; i < data.documents.length; i++) {
+      const book = data.documents[i];
+      const box = $('.bigbook');
+      const ten = book.contents.substring(0, 160);
+      box.append("<img src=" + book.thumbnail + ">")
+      box.append(`<h5>${book.title}</h5>`)
+      box.append(`<h6>${book.authors}</h6>`)
+      box.append(`<p>${ten}</p>`)
+
+    }
+  } catch (error) {
+    console.error('오류발생:', error);
+    $('.searchbook-container').append('<p>데이터 로드 중 오류 발생</p>');
+  }
+}
+bookData();
+
+
+// 스와이프
+let appendNumber = 600;
+let prependNumber = 1;
+
+const swiper1 = new Swiper('.mySwiper1', {
+  slidesPerView: 3,
+
+  loop: true,
+  centeredSlides: true,
+  spaceBetween: 30,
+  pagination: {
+    el: '.mySwiper1 .swiper-pagination',
+    type: 'fraction',
+  },
+  navigation: {
+    nextEl: '.mySwiper1-button-next',
+    prevEl: '.mySwiper1-button-prev',
+  },
+
+});
+
+
+// 섹션 베스트셀러
+
+async function bookData3() {
+  const boxes = $('.shortsbox');
+  const booksearch = ['니체', '단 한번의 삶'];
+
+  for (let i = 0; i < booksearch.length; i++) {
+    const query = booksearch[i];
+
+    const params = new URLSearchParams({
+      target: 'title',
+      query: query
+    });
+
+    const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+      method: 'GET',
+      headers: {
+        Authorization: "KakaoAK bd7cb41ce43d371ae2e745f1c7ba9962"
+      }
+    });
+
+    const data = await response.json();
+    const book = data.documents[0];
+
+    if (book && boxes[i]) {
+      const box = boxes.eq(i);
+      box.html(""); // 혹시 중복 append 방지용 초기화
+      box.append(`<img src="${book.thumbnail}" alt="${book.title}">`);
+      box.append(`<p>BEST SELLER</p>`)
+      box.append(`<h6>${book.title}</h6>`);
+
+
+    }
+  }
+}
+bookData3();
+
+
+$(document).ready(function () {
+  function slide1() {
+    $('.gong2').stop().animate({ marginTop: -40 }, 800, function () {
+      $('.gong2 li:first').appendTo('.gong2');
+      $('.gong2').css({ marginTop: 0 });
+    });
+  }
+  setInterval(slide1, 3000);
+});
+
+
+$(document).ready(function () {
+ 
+  $('.kbook-ul').show();
+  $('.kbook-ul2, .kbook-ul3').hide();
+  $('.nav-bigsize').hide();
+
+
+  $('.kbook-category li').mouseenter(function () {
+    let i = $(this).index();
+    $('.kbook-ul, .kbook-ul2, .kbook-ul3').hide();
+
+    if (i === 0) {
+      $('.kbook-ul').show();
+    } else if (i === 1) {
+      $('.kbook-ul2').show();
+    } else if (i === 2) {
+      $('.kbook-ul3').show();
+    }
+  });
+
+ 
+  let hideTimer;
+
+  $('.nav3, .nav-bigsize').on('mouseenter', function () {
+    clearTimeout(hideTimer);
+    $('.nav-bigsize').stop(true, true).fadeIn(200).css('display', 'flex');
+  });
+
+  $('.nav3, .nav-bigsize').on('mouseleave', function () {
+    hideTimer = setTimeout(function () {
+      $('.nav-bigsize').stop(true, true).fadeOut(200);
+    }, 300);
+  });
+});
