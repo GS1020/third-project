@@ -881,12 +881,12 @@ bookData11();
 
 
 $(document).ready(function () {
-  // 초기 상태 설정
+ 
   $('.kbook-ul').show();
   $('.kbook-ul2, .kbook-ul3').hide();
   $('.nav-bigsize').hide();
 
-  // 카테고리 항목에 마우스 올릴 때 대응
+
   $('.kbook-category li').mouseenter(function () {
     let i = $(this).index();
     $('.kbook-ul, .kbook-ul2, .kbook-ul3').hide();
@@ -900,7 +900,7 @@ $(document).ready(function () {
     }
   });
 
-  // 네비게이션 메뉴 마우스 인터랙션
+ 
   let hideTimer;
 
   $('.nav3, .nav-bigsize').on('mouseenter', function () {
