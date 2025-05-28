@@ -210,8 +210,8 @@ header .scroll {
 .nav-category .nav3 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 130px;
+  justify-content: space-evenly;
+  width: 160px;
   height: 50px;
   cursor: pointer;
 }
@@ -643,6 +643,12 @@ header .scroll {
   border-bottom: 1px #333 solid;
   padding-bottom: 10px;
 }
+.book-infor .price .sale-price .price10 {
+  color: #EE293b;
+  font-size: 28px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
 .book-infor .price .sale-price h2 {
   color: #EE293b;
   font-size: 32px;
@@ -760,6 +766,7 @@ header .scroll {
 .book-infor .pay .pay-button .button-price {
   color: #EE293b;
   font-size: 20px;
+  font-weight: 700;
 }
 .book-infor .pay .pay-button .button-flex {
   display: flex;
@@ -1556,9 +1563,10 @@ header .scroll {
   text-align: center;
   border: #ededed 1px solid;
 }
-.long-infor .container .payment .payment-main .payment-button h3 {
+.long-infor .container .payment .payment-main .payment-button .button-price1 {
   color: #EE293b;
   font-size: 18px;
+  font-weight: 700;
 }
 .long-infor .container .payment .naver-pay {
   border-top: 2px solid #333;

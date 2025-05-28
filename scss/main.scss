@@ -294,8 +294,8 @@ header {
     .nav3 {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 130px;
+        justify-content: space-evenly;
+        width: 160px;
         height: 50px;
         cursor: pointer;
 
@@ -308,6 +308,7 @@ header {
             background-color: #333333;
             border-radius: 10px 10px 0 0;
             opacity: 0.7;
+            
         }
     }
 

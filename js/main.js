@@ -212,7 +212,7 @@ async function bookData4() {
 
       box.append(`<div class="overlay"
         style="background-color:#333;width:100%;height:100%;opacity:0.9;color:#fff; position:absolute; padding:20px;top:0;left:0;overflow:auto; display:none"></div>`);
-      box.find('.overlay').append(`<p>${ten}</p>`)
+      box.find('.overlay').append(`<p style="line-height:16px">${ten}</p>`)
       box.find('.overlay').append(`<div class="overlaybox" style="display: flex; justify-content: space-around; gap: 10px; margin-top: 10px;"></div>`);
 
 

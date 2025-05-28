@@ -27,7 +27,7 @@ async function subbook1() {
     $('.book-ul li').eq(1).append(`${book.translators}`)
      $('.book-ul li').last().append(`${book.publisher}`)
      $('.date-time').append(`${date}`)
-    $('.sale-price h2').append(`${book.sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`)
+    $('.sale-price .price10').append(`${book.sale_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`)
     $('.sale-price del').append(`${book.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+'원'}`)
     $('.payment-thumbnail').append(`<img src="${book.thumbnail}" alt="${book.title}">`)
     $('.payment-thumbnail').append(`<h4>${book.title}</h4>`)
@@ -110,12 +110,6 @@ subbook2();
 });
 
 
-$('.book-tab-box li').click(function(e){
-    
-    $('.book-tab-box li').removeClass('active');
-    $(this).addClass('active');
-    
-})
 
 async function subbook3() {
   const params = new URLSearchParams({
@@ -775,3 +769,42 @@ $(document).ready(function () {
     }, 300);
   });
 });
+
+
+let tab = $('.book-tab-box li')
+let article = $('#tab1,#tab2,#tab3,#tab4')
+
+tab.click(function(e){
+e.preventDefault();
+let target =$(this);
+let index =target.index();
+
+let section=article.eq(index);
+let offset = section.offset().top -97;
+
+$('html,body').animate({scrollTop:offset},100);
+
+});
+
+$('.book-tab-box li').click(function(){
+    
+    $('.book-tab-box li').removeClass('active');
+    $(this).addClass('active');
+    
+});
+
+$(window).scroll(function () {
+  let wScroll = $(this).scrollTop(); 
+
+  for (let i = article.length - 1; i >= 0; i--) {
+    if (wScroll >= article.eq(i).offset().top-150) {
+      tab.removeClass("active");
+      tab.eq(i).addClass("active");
+      break; 
+    }
+  }
+});
+
+
+
+
